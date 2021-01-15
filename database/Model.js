@@ -7,16 +7,22 @@ const FoodItemsTab = db.define('FoodItemsTab', {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true,
+  },
+  description_id: {
+    type: Sequelize.INTEGER,
     references: 'Description',
     referencesKey: 'id'
   }
 })
 
-const Description = db.define('Description', {
+const Descriptions = db.define('Descriptions', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
-    primaryKey: true,
+    primaryKey: true
+  },
+  itemDataTable_id: {
+    type: Sequelize.INTEGER,
     references: 'ItemDataTable',
     referencesKey: 'id'
   },
@@ -30,8 +36,9 @@ const Description = db.define('Description', {
     type: Sequelize.STRING
   }
 })
+// console.log('desc', Descriptions)
 
-const ItemDataTable = db.define('ItemDataTable', {
+const ItemDataTables = db.define('ItemDataTables', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -56,14 +63,22 @@ const ItemDataTable = db.define('ItemDataTable', {
     type: Sequelize.STRING
   }
 })
+FoodItemsTab.sync();
+Descriptions.sync();
+ItemDataTables.sync();
+// let someFunc = async () => {
+//   await Sequelize.sync({ force: true });
+// }
+// someFunc();
 
-FoodItemsTab.belongsTo(Description);
-Description.belongsTo(ItemDataTable);
+
+// FoodItemsTab.belongsTo(Description);
+// Description.belongsTo(ItemDataTable);
 
 
 module.exports = {
-  Description: Description,
-  ItemDataTable: ItemDataTable
+  Descriptions: Descriptions,
+  ItemDataTables: ItemDataTables
 }
 
 // const Description = db.define('Description', {

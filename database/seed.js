@@ -1,30 +1,24 @@
 // const sequelize = require('sequelize');
 var faker = require('faker');
-const { Description, ItemDataTable } = require('./Model.js');
+const { Descriptions, ItemDataTables } = require('./Model.js');
 
-Description.sync({ force: true })
-  .then(() => {
-    return Description.create({
-      descriptionText: faker.lorem.sentences(),
-      keyBenefitsText: faker.lorem.sentences(),
-      videoUrl: faker.image.imageUrl(200, 600, 'animals')
-    })
+Descriptions.create({
+  descriptionText: faker.lorem.sentences(),
+  keyBenefitsText: faker.lorem.sentences(),
+  videoUrl: faker.image.imageUrl(200, 600, 'animals')
+})
+  .then((data) => {
+    console.log('DATA RETURNED FROM CREATE: ', data);
   })
   .catch((e) => {
-    console.log('error in Description: ', e);
+    console.log('ERROR IN CREATE: ', e);
   })
 
-ItemDataTable.sync({ force: true })
-  .then(() => {
-    return Description.create({
-      itemNumber: faker.random.number({min: 10, max: 100}),
-      weight: faker.random.number({min: 10, max: 100}),
-      brand: faker.lorem.word(),
-      lifestage: faker.lorem.word(),
-      foodForm: faker.lorem.word(),
-      specialDiet: faker.lorem.word(),
-    })
-  })
-  .catch((e) => {
-    console.log('error in ItemDataTable: ', e);
-  })
+ItemDataTables.create({
+  itemNumber: faker.random.number({min: 10, max: 100}),
+  weight: faker.random.number({min: 10, max: 100}),
+  brand: faker.lorem.word(),
+  lifestage: faker.lorem.word(),
+  foodForm: faker.lorem.word(),
+  specialDiet: faker.lorem.word(),
+})
