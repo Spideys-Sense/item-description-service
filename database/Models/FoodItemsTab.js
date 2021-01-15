@@ -1,5 +1,6 @@
-const { db } = require('../index.js');
 const Sequelize = require('sequelize');
+const { Descriptions } = require('./Descriptions.js');
+const { db } = require('../index.js');
 
 const FoodItemsTab = db.define('FoodItemsTab', {
   id: {
@@ -10,9 +11,8 @@ const FoodItemsTab = db.define('FoodItemsTab', {
   description_id: {
     type: Sequelize.INTEGER,
     model: 'Descriptions',
-    key: 'id'
-  }
-},
-)
+    key: 'id',
+  },
+})
 
-FoodItemsTab.sync()
+FoodItemsTab.sync();

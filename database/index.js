@@ -3,9 +3,9 @@ const Sequelize = require('sequelize');
 const db = new Sequelize('iteminformation', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
-  logging: false
+  logging: false,
 });
 
 module.exports = {
-  db: db
+  db
 }

@@ -1,34 +1,35 @@
-const { db } = require('../index.js');
 const Sequelize = require('sequelize');
+const { db } = require('../index.js');
 
 const ItemDataTables = db.define('ItemDataTables', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
-    primaryKey: true
+    primaryKey: true,
   },
   itemNumber: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
   },
   weight: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
   },
   brand: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
   },
   lifestage: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
   },
   foodForm: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
   },
   specialDiet: {
-    type: Sequelize.STRING
-  }
+    type: Sequelize.STRING,
+  },
 })
+
 ItemDataTables.sync()
 
 
 module.exports = {
-  ItemDataTables: ItemDataTables
+  ItemDataTables
 }
