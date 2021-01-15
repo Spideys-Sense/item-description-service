@@ -1,17 +1,47 @@
 {
-  "name": "item-description",
-  "version": "",
-  "description": "",
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
   "author": "",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "build": "webpack --watch",
+    "start": "nodemon server/index",
+    "test": "mocha"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.12.10",
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "mocha": "^8.2.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@webpack-cli/init": "^1.1.1",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack": "^5.14.0",
+    "webpack-cli": "^4.3.1"
   }
 }
