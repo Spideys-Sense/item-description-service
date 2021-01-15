@@ -2,42 +2,6 @@ const { db } = require('./index.js');
 const Sequelize = require('sequelize');
 // const mysql = require('mysql');
 
-const FoodItemsTab = db.define('FoodItemsTab', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  description_id: {
-    type: Sequelize.INTEGER,
-    references: 'Description',
-    referencesKey: 'id'
-  }
-})
-
-const Descriptions = db.define('Descriptions', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true
-  },
-  itemDataTable_id: {
-    type: Sequelize.INTEGER,
-    references: 'ItemDataTable',
-    referencesKey: 'id'
-  },
-  descriptionText: {
-    type: Sequelize.STRING
-  },
-  keyBenefitsText: {
-    type: Sequelize.STRING
-  },
-  videoUrl: {
-    type: Sequelize.STRING
-  }
-})
-// console.log('desc', Descriptions)
-
 const ItemDataTables = db.define('ItemDataTables', {
   id: {
     type: Sequelize.INTEGER,
@@ -63,9 +27,72 @@ const ItemDataTables = db.define('ItemDataTables', {
     type: Sequelize.STRING
   }
 })
-FoodItemsTab.sync();
-Descriptions.sync();
-ItemDataTables.sync();
+ItemDataTables.sync()
+  .then((data) => {
+    console.log('data received from ItemDataTables: ', data);
+  })
+  .catch((e) => {
+    console.log('error in ItemDataTables: ', e);
+  })
+
+const Descriptions = db.define('Descriptions', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  itemDataTable_id: {
+    type: Sequelize.INTEGER,
+    model: 'ItemDataTables',
+    key: 'id'
+  },
+  descriptionText: {
+    type: Sequelize.STRING
+  },
+  keyBenefitsText: {
+    type: Sequelize.STRING
+  },
+  videoUrl: {
+    type: Sequelize.STRING
+  }
+}
+)
+// console.log('desc', Descriptions)
+Descriptions.sync()
+  .then((data) => {
+    console.log('data received from Descriptions: ', data);
+  })
+  .catch((e) => {
+    console.log('error in Descriptions: ', e);
+  })
+
+const FoodItemsTab = db.define('FoodItemsTab', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  description_id: {
+    type: Sequelize.INTEGER,
+    model: 'Descriptions',
+    key: 'id'
+  }
+}
+)
+
+FoodItemsTab.sync()
+  .then((data) => {
+    console.log('data received from FoodItemsTab: ', data);
+  })
+  .catch((e) => {
+    console.log('error in FoodItemsTab: ', e);
+  })
+
+
+
+
+
+
 // let someFunc = async () => {
 //   await Sequelize.sync({ force: true });
 // }

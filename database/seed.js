@@ -3,16 +3,16 @@ var faker = require('faker');
 const { Descriptions, ItemDataTables } = require('./Model.js');
 
 Descriptions.create({
-  descriptionText: faker.lorem.sentences(),
-  keyBenefitsText: faker.lorem.sentences(),
+  descriptionText: faker.lorem.sentences(1),
+  keyBenefitsText: faker.lorem.sentences(1),
   videoUrl: faker.image.imageUrl(200, 600, 'animals')
 })
-  .then((data) => {
-    console.log('DATA RETURNED FROM CREATE: ', data);
-  })
-  .catch((e) => {
-    console.log('ERROR IN CREATE: ', e);
-  })
+  // .then((data) => {
+  //   console.log('DATA RETURNED FROM CREATE: ', data);
+  // })
+  // .catch((e) => {
+  //   console.log('ERROR IN CREATE: ', e);
+  // })
 
 ItemDataTables.create({
   itemNumber: faker.random.number({min: 10, max: 100}),
