@@ -2,6 +2,11 @@ const { db } = require('./index.js');
 const Sequelize = require('sequelize');
 // const mysql = require('mysql');
 
+// db.drop({ force: true });
+// console.log(db);
+
+// db.destroy({ truncate: true })
+
 const ItemDataTables = db.define('ItemDataTables', {
   id: {
     type: Sequelize.INTEGER,
@@ -77,7 +82,7 @@ const FoodItemsTab = db.define('FoodItemsTab', {
     model: 'Descriptions',
     key: 'id'
   }
-}
+},
 )
 
 FoodItemsTab.sync()
@@ -88,6 +93,8 @@ FoodItemsTab.sync()
     console.log('error in FoodItemsTab: ', e);
   })
 
+
+// db.sync();
 
 
 
