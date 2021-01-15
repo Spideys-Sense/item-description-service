@@ -1,12 +1,17 @@
 // const sequelize = require('sequelize');
 const faker = require('faker');
-const { Descriptions, ItemDataTables } = require('./Model.js');
+
+const { Descriptions } = require('./Models/Descriptions.js');
+const { ItemDataTables } = require('./Models/ItemDataTables.js');
+
+Descriptions.destroy({ truncate: true });
+ItemDataTables.destroy({ truncate: true });
 
 let descriptionFiller = () => {
   return Descriptions.create({
     descriptionText: faker.lorem.sentences(1),
     keyBenefitsText: faker.lorem.sentences(1),
-    videoUrl: faker.image.imageUrl(200, 600, 'cats', true, true),
+    videoUrl: faker.image.imageUrl(500, 400, 'animals', true, true),
   })
 }
 let itemDataTableFiller = () => {
@@ -19,11 +24,13 @@ let itemDataTableFiller = () => {
     specialDiet: faker.lorem.word(),
   })
 }
-for (let i = 0; i < 100; i++) {
-  descriptionFiller();
-  itemDataTableFiller();
+let randomlyGeneratedData = function() {
+  for (let i = 0; i < 100; i++) {
+    descriptionFiller();
+    itemDataTableFiller();
+  }
 }
-
+randomlyGeneratedData();
 
 
 // for (let i = 0; i < 100; i++) {
@@ -39,4 +46,4 @@ for (let i = 0; i < 100; i++) {
 //     console.log('itemDataTableFiller: ', data);
 //   })
 // }
-// module.exports = randomlyGeneratedData;
+module.exports.randomlyGeneratedData = randomlyGeneratedData;
