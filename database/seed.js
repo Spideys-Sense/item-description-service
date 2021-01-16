@@ -23,12 +23,20 @@ const itemDataTableFiller = () => {
     specialDiet: faker.lorem.word(),
   });
 };
-const randomlyGeneratedData = () => {
+const randomlyGeneratedDataItemDataTable = () => {
   for (let i = 0; i < 100; i++) {
-    descriptionFiller();
     itemDataTableFiller();
   }
 };
-randomlyGeneratedData();
+const randomlyGeneratedDataDescription = () => {
+  for (let j = 0; j < 100; j++) {
+    descriptionFiller();
+  }
+};
+// randomlyGeneratedDataItemDataTable();
+// randomlyGeneratedDataDescription();
 
-module.exports.randomlyGeneratedData = randomlyGeneratedData;
+module.exports = {
+  randomlyGeneratedDataDescription: randomlyGeneratedDataDescription,
+  randomlyGeneratedDataItemDataTable: randomlyGeneratedDataItemDataTable
+}
