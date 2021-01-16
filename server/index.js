@@ -7,7 +7,7 @@ const app = express();
 const PORT = 8080;
 
 // const { randomlyGeneratedDataDescription, randomlyGeneratedDataItemDataTable } = require('../database/seed.js')
-const { seed } = require('../database/seed.js')
+const { seed } = require('../database/seed.js');
 const { Descriptions } = require('../database/Models/Descriptions.js');
 
 // const bodyParser = require('body-parser')
@@ -37,6 +37,8 @@ app.get('/api/:id/information', (req, res) => {
     })
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
+
+module.exports = server;
