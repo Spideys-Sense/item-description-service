@@ -5,7 +5,7 @@ var assert = chai.assert;    // Using Assert style
 var expect = chai.expect;    // Using Expect style
 var should = chai.should();  // Using Should style
 
-const { randomlyGeneratedDataDescription, randomlyGeneratedDataItemDataTable } = require('../database/seed.js');
+const { seed } = require('../database/seed.js');
 const sequelize = require('sequelize');
 const { Descriptions } = require('../database/Models/Descriptions.js');
 const { ItemDataTables } = require('../database/Models/ItemDataTables.js');
@@ -13,8 +13,7 @@ const { ItemDataTables } = require('../database/Models/ItemDataTables.js');
 beforeEach(() => {
   Descriptions.destroy({ truncate: true });
   ItemDataTables.destroy({ truncate: true });
-  randomlyGeneratedDataDescription();
-  randomlyGeneratedDataItemDataTable();
+  seed();
 });
 
 describe('Database', () => {
