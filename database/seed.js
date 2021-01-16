@@ -10,8 +10,8 @@ const seed = async () => {
 
   const descriptionFiller = async () => {
     await Descriptions.create({
-      descriptionText: faker.lorem.sentences(1),
-      keyBenefitsText: faker.lorem.sentences(1),
+      descriptionText: faker.lorem.sentences(),
+      keyBenefitsText: faker.lorem.sentences(),
       videoUrl: faker.image.imageUrl(500, 400, 'animals', true, true),
     });
   };
@@ -35,6 +35,7 @@ const seed = async () => {
   async() => {
     await seed();
   }
+
   module.exports = {
     seed: seed
   }

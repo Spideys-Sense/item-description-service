@@ -26,26 +26,45 @@ app.get('/api/:id/information', (req, res) => {
   }
   let results = {}
 
-  const descriptionFiller = (cb) => {
-    return Descriptions.findAll();
+  const descriptionFiller = async () => {
+    let temp = await Descriptions.findAll();
+    return temp;
   };
-  const itemDataTableFiller = () => {
-    return ItemDataTables.findAll();
+  const itemDataTableFiller = async () => {
+    let temp = await ItemDataTables.findAll();
+    return temp;
   };
-  let temp = async() => {
-    await descriptionFiller()
+  let temp = () => {
+    descriptionFiller()
       .then((data) => {
+        // console.log(data);
         results['description'] = data;
+        return results;
       })
-      await itemDataTableFiller()
-      .then((data) => {
-        results['itemDataTable'] = data;
+      .then((results) => {
+        itemDataTableFiller()
+          .then((data) => {
+            results['itemDataTable'] = data;
+            return results;
+          })
+          .then((results) => {
+            res.send(results)
+          })
       })
+        .catch((e) => {
+        console.error('err in descriptionFiller: ', e);
+      })
+      // await itemDataTableFiller()
+      // .then((data) => {
+      //   results['itemDataTable'] = data;
+      // })
   }
-  temp()
-    .then(() => {
-      res.send(results);
-    })
+  temp();
+  //   .then(() => {
+  //     console.log(results.description)
+  //     // console.log(results.itemDataTable)
+  //     res.send(results);
+  //   })
 });
 
 const server = app.listen(PORT, () => {
