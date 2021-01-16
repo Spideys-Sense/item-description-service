@@ -11,7 +11,8 @@
     "build": "webpack --watch",
     "start": "nodemon server/index",
     "test": "mocha",
-    "react-test": "jest"
+    "react-test": "jest",
+    "seed": "node database/seed.js"
   },
   "dependencies": {
     "@babel/preset-react": "^7.12.10",
