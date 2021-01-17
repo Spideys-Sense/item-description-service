@@ -23,7 +23,6 @@ let randomKeyBenefitsList = () => {
   for (var i = 0; i < 15; i++) {
     newKeyBenefitsArr.push(chewyWordsArr[randomNum(75)].toLowerCase());
   }
-  console.log()
   return newKeyBenefitsArr.join(' ');
 }
 
