@@ -18,6 +18,7 @@ let randomWordList = () => {
 }
 
 /* CREATING RANDOM KEY BENEFITS LIST */
+
 let randomKeyBenefitsList = () => {
   let newKeyBenefitsArr = [];
   for (var i = 0; i < 15; i++) {
