@@ -8,16 +8,18 @@ class App extends React.Component {
     super();
     this.state = {
       id: 1,
-      currentData: {},
+      descriptionData: [],
+      itemTableData: [],
       loaded: false
     }
     this.renderView = this.renderView.bind(this);
   }
   componentDidMount() {
     axios.get(`/api/${this.state.id}/information`)
-      .then((data) => {
+      .then(({ data }) => {
         this.setState({
-          currentData: data,
+          descriptionData: data[0],
+          itemTableData: data[1],
           loaded: true
         })
         return data;
@@ -34,8 +36,8 @@ class App extends React.Component {
       return (
         <div>
           <Description
-          description={ this.state.currentData.data.description }
-          itemDataTable={ this.state.currentData.data.itemDataTable }
+          description={ this.state.descriptionData }
+          itemDataTable={ this.state.itemTableData }
           />
           {/* <h1>{ this.state.currentData.data.descriptionText }</h1>
           <h1>{ this.state.currentData.data.keyBenefitsText }</h1>

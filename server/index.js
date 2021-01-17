@@ -36,20 +36,32 @@ app.get('/api/:id/information', (req, res) => {
     return ItemDataTables.findAll();
   }
 
-  let temp = async() => {
-    await descriptionFiller()
-      .then((data) => {
-        results['description'] = data;
-      })
-      await itemDataTableFiller()
-        .then((data) => {
-          results['itemDataTable'] = data;
-        })
+  let findData = async () => {
+    let description = descriptionFiller();
+    let itemDataTable = itemDataTableFiller();
+
+    let values = await Promise.all([description, itemDataTable])
+    // console.log('VALUES IN SERVER: ', values[1].length)
+    res.send(values);
   }
-  temp()
-    .then(() => {
-      res.send(results);
+  findData()
+    .catch((e) => {
+      console.error('error in server: ', e);
     })
+  // let temp = async() => {
+  //   await descriptionFiller()
+  //     .then((data) => {
+  //       results['description'] = data;
+  //     })
+  //     await itemDataTableFiller()
+  //       .then((data) => {
+  //         results['itemDataTable'] = data;
+  //       })
+  // }
+  // temp()
+  //   .then(() => {
+  //     res.send(results);
+  //   })
 
 
   /*
