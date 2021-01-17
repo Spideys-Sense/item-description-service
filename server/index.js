@@ -21,21 +21,56 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 
 app.get('/api/:id/information', (req, res) => {
+
   async() => {
     await seed();
   }
+
+  let results = {};
+
+  const descriptionFiller = () => {
+    return Descriptions.findAll();
+  }
+
+  const itemDataTableFiller = () => {
+    return ItemDataTables.findAll();
+  }
+
+  let temp = async() => {
+    await descriptionFiller()
+      .then((data) => {
+        results['description'] = data;
+      })
+      await itemDataTableFiller()
+        .then((data) => {
+          results['itemDataTable'] = data;
+        })
+  }
+  temp()
+    .then(() => {
+      res.send(results);
+    })
+
+
+  /*
+  // let seedFunc;
+  // let temp1 = async() => {
+  //   await seed();
+  // }
+  // temp1()
+  //   .then((data) => { console.log(data) })
   let results = {}
 
-  const descriptionFiller = async () => {
-    let temp = await Descriptions.findAll();
-    return temp;
+  seed();
+
+  const descriptionFiller = () => {
+    return Descriptions.findAll();
   };
-  const itemDataTableFiller = async () => {
-    let temp = await ItemDataTables.findAll();
-    return temp;
+  const itemDataTableFiller = () => {
+    return ItemDataTables.findAll();
   };
   let temp = () => {
-    descriptionFiller()
+    return descriptionFiller()
       .then((data) => {
         // console.log(data);
         results['description'] = data;
@@ -65,6 +100,7 @@ app.get('/api/:id/information', (req, res) => {
   //     // console.log(results.itemDataTable)
   //     res.send(results);
   //   })
+  */
 });
 
 const server = app.listen(PORT, () => {

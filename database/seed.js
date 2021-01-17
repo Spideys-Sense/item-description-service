@@ -26,15 +26,15 @@ const seed = async () => {
     });
   };
     for (let i = 0; i < 100; i++) {
-      await itemDataTableFiller();
+      await itemDataTableFiller()
     }
     for (let j = 0; j < 100; j++) {
       await descriptionFiller();
     }
 }
-  async() => {
-    await seed();
-  }
+  // async() => {
+  //   await seed();
+  // }
 
   module.exports = {
     seed: seed
