@@ -25,7 +25,10 @@ app.get('/api/:id/information', (req, res) => {
   async() => {
     await seed();
   }
-
+  // seed()
+  //   .then((data) => {
+  //     console.log(data)
+  //   })
   let results = {};
 
   const descriptionFiller = () => {

@@ -1,5 +1,7 @@
 import React from 'react';
+
 const axios = require('axios');
+
 import Description from './Description.jsx';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
@@ -19,6 +21,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get(`/api/${this.state.id}/information`)
       .then(({ data }) => {
+        console.log(data)
         this.setState({
           descriptionData: data[0],
           itemTableData: data[1],

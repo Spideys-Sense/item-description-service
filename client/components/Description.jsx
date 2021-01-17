@@ -2,6 +2,7 @@ import React from 'react';
 import ItemDataTable from './ItemDataTable.jsx'
 
 const Description = ({description, itemDataTable}) => {
+  console.log(description)
   return (
     <div className="description">
         {description[0].descriptionText}

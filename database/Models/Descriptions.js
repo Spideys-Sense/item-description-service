@@ -14,10 +14,10 @@ const Descriptions = db.define('Descriptions', {
     key: 'id',
   },
   descriptionText: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
   },
   keyBenefitsText: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
   },
   videoUrl: {
     type: Sequelize.STRING,
