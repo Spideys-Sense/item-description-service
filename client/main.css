@@ -1,0 +1,25 @@
+.descriptionTab {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 60% 40%;
+}
+
+.descriptionText {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+.keyBenefitsText {
+  grid-row-start: 2;
+  grid-column-start: 1;
+}
+
+.sideBarVideo {
+  grid-row-start: 1;
+  grid-column-start: 2;
+}
+
+.sideBarGraph {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}

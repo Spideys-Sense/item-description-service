@@ -1,6 +1,10 @@
 import React from 'react';
 
 const ItemDataTable = ({itemDataTable}) => {
-  return <p>Inside ItemDataTable component</p>
+  return (
+    <div className="sideBarGraph">
+      {itemDataTable[0].id}
+    </div>
+  )
 }
 export default ItemDataTable;
