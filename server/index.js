@@ -41,7 +41,6 @@ app.get('/api/:id/information', (req, res) => {
     let itemDataTable = itemDataTableFiller();
 
     let values = await Promise.all([description, itemDataTable])
-    // console.log('VALUES IN SERVER: ', values[1].length)
     res.send(values);
   }
   findData()

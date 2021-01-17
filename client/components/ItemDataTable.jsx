@@ -1,9 +1,14 @@
 import React from 'react';
 
-const ItemDataTable = ({itemDataTable}) => {
+const ItemDataTable = ({itemDataTable, videoUrl}) => {
   return (
-    <div className="sideBarGraph">
-      {itemDataTable[0].id}
+    <div className="sideBar">
+      <div className="sideBarGraph">
+        {itemDataTable[0].id}
+      </div>
+      <div className="sideBarVideo">
+        {videoUrl}
+      </div>
     </div>
   )
 }

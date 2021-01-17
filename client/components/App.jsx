@@ -1,6 +1,8 @@
 import React from 'react';
 const axios = require('axios');
 import Description from './Description.jsx';
+import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 // import styles from './home-page.css';
 
 class App extends React.Component {
@@ -34,11 +36,17 @@ class App extends React.Component {
       return <h1>Loading...</h1>
     } else {
       return (
-        <div>
+        <div className="descriptionTab">
+          <div className="headers">
+            <Header />
+          </div>
           <Description
           description={ this.state.descriptionData }
           itemDataTable={ this.state.itemTableData }
           />
+          <div className="footers">
+            <Footer />
+          </div>
           {/* <h1>{ this.state.currentData.data.descriptionText }</h1>
           <h1>{ this.state.currentData.data.keyBenefitsText }</h1>
           <h1>{ this.state.currentData.data.videoUrl }</h1> */}
