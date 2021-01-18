@@ -1,15 +1,13 @@
 import React from 'react';
+import SideBarGraph from './SideBarGraph.jsx';
+import SideBarVideo from './SideBarVideo.jsx';
 
-const ItemDataTable = ({itemDataTable, videoUrl}) => {
+const ItemDataTable = ({ itemDataTable, videoUrl }) => {
   return (
     <div className="sideBar">
-      <div className="sideBarGraph">
-        {itemDataTable[0].id}
-      </div>
-      <div className="sideBarVideo">
-        {videoUrl}
-      </div>
+      <SideBarGraph itemDataTable={ itemDataTable[0] } />
+      <SideBarVideo videoUrl={ videoUrl } />
     </div>
-  )
-}
+  );
+};
 export default ItemDataTable;
