@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <span>
+    <span className="Footer">
       Footer
     </span>
   );

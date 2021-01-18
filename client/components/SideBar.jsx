@@ -2,12 +2,12 @@ import React from 'react';
 import SideBarGraph from './SideBarGraph.jsx';
 import SideBarVideo from './SideBarVideo.jsx';
 
-const ItemDataTable = ({ itemDataTable, videoUrl }) => {
+const SideBar = ({ itemDataTable, videoUrl }) => {
   return (
-    <div className="sideBar">
-      <SideBarGraph itemDataTable={ itemDataTable[0] } />
+    <div className="SideBar">
       <SideBarVideo videoUrl={ videoUrl } />
+      <SideBarGraph itemDataTable={ itemDataTable[0] } />
     </div>
   );
 };
-export default ItemDataTable;
+export default SideBar;

@@ -2,6 +2,10 @@ import React from 'react';
 import Description from './Description.jsx';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
+import SideBar from './SideBar.jsx';
+
+{/* <ItemDataTable itemDataTable={ itemDataTable } videoUrl={ description[0].videoUrl } /> */}
+
 
 const axios = require('axios');
 
@@ -22,7 +26,7 @@ class App extends React.Component {
       .then(({ data }) => {
         this.setState({
           descriptionData: data[0],
-          itemTableData: data[1],
+          sideBarData: data[1],
           loaded: true,
         });
       });
@@ -32,16 +36,18 @@ class App extends React.Component {
     if (!this.state.loaded) {
       return <h1>Loading...</h1>;
     }
+    console.log(this.state.descriptionData)
     return (
       <div className="descriptionTab">
         <Header />
         <Description
           description={ this.state.descriptionData }
-          itemDataTable={ this.state.itemTableData }
         />
-        <div className="footers">
-          <Footer />
-        </div>
+        <SideBar
+          itemDataTable={ this.state.sideBarData }
+          videoUrl={ this.state.descriptionData[0].videoUrl }
+        />
+        <Footer />
       </div>
     );
   }
@@ -53,5 +59,7 @@ class App extends React.Component {
       </main>
     );
   }
+
 }
+
 export default App;

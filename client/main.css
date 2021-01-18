@@ -11,6 +11,7 @@
   font-size: 15px;
   display: flex;
   justify-content: space-between;
+  font-size: 10px;
 }
 
 .description {
@@ -18,22 +19,12 @@
   grid-column-start: 1;
 }
 
-.sideBar {
+.SideBar {
   grid-row-start: 2;
   grid-column-start: 2;
 }
 
-/* .sideBarVideo {
-  grid-row-start: 2;
-  grid-column-start: 2;
-}
-
-.sideBarGraph {
-  grid-column-start: 2;
-  grid-row-start: 2;
-} */
-
-.footers {
+.Footer {
   grid-row-start: 3;
   grid-column-start: 1;
 }
