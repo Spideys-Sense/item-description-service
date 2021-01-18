@@ -14,8 +14,6 @@ const { ItemDataTables } = require('../database/Models/ItemDataTables.js');
 const server = require('../server/index.js');
 
 beforeEach(() => {
-  Descriptions.destroy({ truncate: true });
-  ItemDataTables.destroy({ truncate: true });
   seed();
 });
 
@@ -45,9 +43,9 @@ describe('/GET Request', () => {
         .get('/api/1/information')
         .end((err, res) => {
               res.should.have.status(200);
-              res.body.should.be.a('object');
-              res.body.id.should.equal(1);
-              Object.keys(res.body).should.have.lengthOf(7)
+              res.body.should.be.a('array');
+              // res.body.id.should.equal(1);
+              Object.keys(res.body).should.have.lengthOf(2)
           done();
         });
   });

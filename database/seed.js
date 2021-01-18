@@ -10,111 +10,83 @@ const seed = () => {
   Descriptions.destroy({ truncate: true });
   ItemDataTables.destroy({ truncate: true });
 
-  const descriptionFillerData = {
-    descriptionTest: random.randomWordList(),
-    // descriptionText: faker.lorem.sentences(),
-    keyBenefitsText: random.randomKeyBenefitsList(),
-    // keyBenefitsText: faker.lorem.sentences(),
-    videoUrl: faker.image.imageUrl(500, 400, 'animals', true, true),
+  const descriptionFillerData = async () => {
+    let descriptionText, keyBenefitsText, videoUrl;
+    try {
+      descriptionText = await random.randomWordList();
+      // console.log(descriptionText)
+      // descriptionText: faker.lorem.sentences(),
+      keyBenefitsText = await random.randomKeyBenefitsList();
+      // keyBenefitsText: faker.lorem.sentences(),
+      videoUrl = await faker.image.imageUrl(500, 400, 'animals', true, true);
+    } catch(e) {
+      console.error('Error in descriptionFillerData: ', e);
+    }
+    let object = {
+      descriptionText: descriptionText,
+      keyBenefitsText: keyBenefitsText,
+      videoUrl: videoUrl
+    }
+    // console.log(object)
+    return object;
   }
 
-  const itemDataTableFillerData = {
-    itemNumber: faker.random.number({ min: 10, max: 100 }),
-    weight: faker.random.number({ min: 10, max: 100 }),
-    brand: random.randomBrandFunc(),
-    // brand: faker.lorem.word(),
-    lifestage: random.randomLifeStageFunc(),
-    // lifestage: faker.lorem.word(),
-    foodForm: random.randomFoodFormFunc(),
-    // foodForm: faker.lorem.word(),
-    specialDiet: random.randomSpecialDietFunc()
-    // specialDiet: faker.lorem.word(),
-  }
-  // console.log(itemDataTableFillerData)
+  const itemDataTableFillerData = async() => {
+    let itemNumber, weight, brand, lifestage, foodForm, specialDiet;
+    try {
+        itemNumber = await faker.random.number({ min: 10, max: 100 });
+        weight = await faker.random.number({ min: 10, max: 100 });
+        brand = await random.randomBrandFunc();
+        // brand: faker.lorem.word(),
+        lifestage = await random.randomLifeStageFunc();
+        // lifestage: faker.lorem.word(),
+        foodForm = await random.randomFoodFormFunc();
+        // foodForm: faker.lorem.word(),
+        specialDiet = await random.randomSpecialDietFunc();
+        // specialDiet: faker.lorem.word(),
+    } catch(e) {
+      console.error('Error in itemDataTableFillerData: ', e);
+    }
+    let object = {
+        itemNumber: itemNumber,
+        weight: weight,
+        brand: brand,
+        // brand: faker.lorem.word(),
+        lifestage: lifestage,
+        // lifestage: faker.lorem.word(),
+        foodForm: foodForm,
+        // foodForm: faker.lorem.word(),
+        specialDiet: specialDiet
+        // specialDiet: faker.lorem.word(),
+      }
+      return object;
+    }
 
-  let descriptionFiller = async () => {
-    let result = [];
+    // descriptionFillerData().then((data) => {console.log(data)})
+
+  let descriptionFiller = () => {
     for (let j = 0; j < 100; j++) {
-      //.create for description
-      let data = await Descriptions.create({
-        descriptionFillerData
-      })
-      result.push(data);
+      descriptionFillerData()
+        .then((data) => {
+          Descriptions.create({ data })
+        })
     }
-    return result;
   }
-  let itemDataTableFiller = async () => {
-    let result = [];
+
+  let itemDataTableFiller = () => {
     for (let i = 0; i < 100; i++) {
-      //.create for itemdatatable
-      let data = await ItemDataTables.create({
-        //return undefined
-        itemDataTableFillerData
-      });
-      //returns 1 result
-      result.push(data);
-      // await itemDataTableFiller()
+      itemDataTableFillerData()
+        .then((data) => {
+          ItemDataTables.create({ data })
+        })
     }
-    // console.log(result)
-    return result;
   }
 
-  // itemDataTableFiller.then((data) => {
-  //   console.log(data);
-  // })
+  descriptionFiller();
+  itemDataTableFiller();
+}
+seed();
 
-  let descriptionFillerPromise = descriptionFiller()
-  let itemDataTableFillerPromise = itemDataTableFiller();
-
-  // console.log(descriptionFillerPromise)
-
-  // descriptionFillerPromise.then((data) => {
-  //   // console.log(data)
-  // })
-
-  let result = Promise.all([descriptionFillerPromise, itemDataTableFillerPromise])
-  // console.log(result)
-  // result.then((data) => {
-  //   console.log(data)
-  // })
-  return result;
-    // .then((data) => {
-    //   console.log(data)
-    // })
-    // .then((data) => {
-    //   console.log(data)
-    // })
-    // console.log(result)
-
-    // return result
-    //   .then((data) => {
-    //     return data;
-    //   })
-  }
-      // await descriptionFiller();
-    seed();
-  // seed()
-  //   .catch((e) => {
-  //     console.error(e)
-  //   })
-
-  //node seed.js runs file!!!!!!!
-
-  //call .create on data objects?!!!!!!!!!!!
-
-  //npm run seed/npm start!!!!!!!!!
-
-
-
-
-
-
-  //   .then((data) => {
-  //     console.log(data)
-  //   })
-  // async() => {
-  //   await seed();
-  // }
 
   module.exports = {
     seed: seed

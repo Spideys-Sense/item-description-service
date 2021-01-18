@@ -21,35 +21,54 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 
 app.get('/api/:id/information', (req, res) => {
+  seed();
+  // Descriptions.findAll().then((data) => res.send(data))
 
-  async() => {
-    await seed();
-  }
+  let results = Promise.all([Descriptions.findAll({}), ItemDataTables.findAll({})]);
+  results.then((data) => {
+    res.send(data);
+  })
+
+  // async() => {
+  //   await seed();
+  // }
+  // let generatedData = seed();
+  // let result = seed();
+  // result.then((data) => {
+  //   // console.log(data[0])
+  //   res.send(data);
+  // })
+  // console.log(result)
+  //   seed().then((data) => {
+  //     console.log(data)
+  //   })
+  // console.log(result)
+  // result.then((data) => console.log(data) )
   // seed()
   //   .then((data) => {
   //     console.log(data)
   //   })
-  let results = {};
+  // let results = {};
 
-  const descriptionFiller = () => {
-    return Descriptions.findAll();
-  }
+  // const descriptionFiller = async () => {
+  //   await Descriptions.findAll();
+  // }
 
-  const itemDataTableFiller = () => {
-    return ItemDataTables.findAll();
-  }
+  // const itemDataTableFiller = async () => {
+  //   await ItemDataTables.findAll();
+  // }
 
-  let findData = async () => {
-    let description = descriptionFiller();
-    let itemDataTable = itemDataTableFiller();
+  // let findData = async () => {
+  //   // let description = descriptionFiller();
+  //   // let itemDataTable = itemDataTableFiller();
 
-    let values = await Promise.all([description, itemDataTable])
-    res.send(values);
-  }
-  findData()
-    .catch((e) => {
-      console.error('error in server: ', e);
-    })
+  //   let values = await Promise.all([descriptionFiller, itemDataTableFiller])
+  //   res.send(values);
+  // }
+  // findData()
+  //   .catch((e) => {
+  //     console.error('error in server: ', e);
+  //   })
   // let temp = async() => {
   //   await descriptionFiller()
   //     .then((data) => {

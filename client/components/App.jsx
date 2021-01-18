@@ -20,17 +20,17 @@ class App extends React.Component {
   }
   componentDidMount() {
     axios.get(`/api/${this.state.id}/information`)
-      .then(({ data }) => {
-        this.setState({
-          descriptionData: data[0],
-          itemTableData: data[1],
-          loaded: true
-        })
-        return data;
-      })
-      // .then((dataFromApi) => {
-      //   console.log('API Working: ', dataFromApi)
+      // .then((data) => {
+      //   // this.setState({
+      //   //   descriptionData: data[0],
+      //   //   itemTableData: data[1],
+      //   //   loaded: true
+      //   // })
+      //   return data;
       // })
+      .then((dataFromApi) => {
+        console.log('API Working: ', dataFromApi)
+      })
   }
 
   renderView() {
