@@ -22,10 +22,10 @@ const Descriptions = db.define('Descriptions', {
   videoUrl: {
     type: Sequelize.STRING,
   },
-})
+});
 
-Descriptions.sync()
+Descriptions.sync();
 
 module.exports = {
-  Descriptions
-}
+  Descriptions,
+};
