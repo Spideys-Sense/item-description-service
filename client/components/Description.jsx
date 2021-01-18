@@ -5,8 +5,8 @@ import KeyBenefitsText from './KeyBenefitsText.jsx'
 const Description = ({ description }) => {
   return (
     <div className="description">
-      <DescriptionText descriptionText={ description.descriptionText } />
-      <KeyBenefitsText keyBenefitsText={ description.keyBenefitsText } />
+      <DescriptionText descriptionText={ description[0].descriptionText } />
+      <KeyBenefitsText keyBenefitsText={ description[0].keyBenefitsText } />
     </div>
   );
 };

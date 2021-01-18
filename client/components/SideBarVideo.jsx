@@ -1,9 +1,10 @@
 import React from 'react';
 
-const SideBarVideo = ({ videoUrl }) => {
+const SideBarVideo = ({ videoUrl, brand }) => {
   return (
-    <div>
-      SideBarVideo
+    <div className="SideBarVideo">
+      <img src={ videoUrl }></img>
+      <p className="video-title">Watch our {brand} video</p>
     </div>
   );
 };

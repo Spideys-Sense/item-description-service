@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({ brand }) => {
   return (
     <span className="Footer">
-      Footer
+      <a href="#">See all items by { brand }...</a>
     </span>
   );
 };

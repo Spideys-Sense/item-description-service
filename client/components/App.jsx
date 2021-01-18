@@ -36,7 +36,6 @@ class App extends React.Component {
     if (!this.state.loaded) {
       return <h1>Loading...</h1>;
     }
-    console.log(this.state.descriptionData)
     return (
       <div className="descriptionTab">
         <Header />
@@ -46,8 +45,9 @@ class App extends React.Component {
         <SideBar
           itemDataTable={ this.state.sideBarData }
           videoUrl={ this.state.descriptionData[0].videoUrl }
+          brand={ this.state.sideBarData[0].brand }
         />
-        <Footer />
+        <Footer brand={ this.state.sideBarData[0].brand } />
       </div>
     );
   }

@@ -1,8 +1,11 @@
 .descriptionTab {
+  width: 800px;
+  height: 800px;
   display: grid;
-  grid-template-rows: 15% 70% 15%;
+  grid-template-rows: 15% 75% 10%;
   grid-template-columns: 60% 40%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
 }
 
 .header {
@@ -11,7 +14,6 @@
   font-size: 15px;
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
 }
 
 .description {
@@ -23,6 +25,41 @@
   grid-row-start: 2;
   grid-column-start: 2;
 }
+
+.SideBarVideo {
+  width: 225px;
+  margin: 0 auto;
+}
+
+.SideBarVideo .video-title {
+  font-size: 10px;
+  text-align: center;
+}
+
+.SideBarGraph {
+  display: grid;
+  border: 5px solid black;
+}
+
+.SideBarGraph li .title {
+  display: block;
+  float: left;
+  width: 110px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: inherit;
+  color: #9b9b9b;
+  padding-right: 5px;
+}
+
+.SideBar li .value {
+  font-size: 12px;
+    font-weight: 400;
+    line-height: inherit;
+    color: #555;
+}
+
+
 
 .Footer {
   grid-row-start: 3;

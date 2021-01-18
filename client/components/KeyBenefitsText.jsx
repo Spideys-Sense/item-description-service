@@ -1,10 +1,16 @@
 import React from 'react';
 
-const KeyBenefitsText = () => {
+const KeyBenefitsText = ({ keyBenefitsText }) => {
+  // console.log(keyBenefitsText.split('\n'))
+  let keyBenefitsTextBullets = keyBenefitsText.split('\n')
   return (
-    <div className="KeyBenefitsText">
-      Key Benefits Text
-    </div>
+    <ul className="KeyBenefitsText">
+      {keyBenefitsTextBullets.map((bulletPoint, index) => (
+        <li key={index}>
+          { bulletPoint }
+        </li>
+      ))}
+    </ul>
   );
 };
 

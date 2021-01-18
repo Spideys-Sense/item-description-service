@@ -19,11 +19,15 @@ const randomWordList = () => {
 /* CREATING RANDOM KEY BENEFITS LIST */
 
 const randomKeyBenefitsList = () => {
-  const newKeyBenefitsArr = [];
-  for (let i = 0; i < 15; i += 1) {
-    newKeyBenefitsArr.push(chewyWordsArr[randomNum(75)].toLowerCase());
+  const resultsArr = [];
+  for (let j = 0; j < 5; j += 1) {
+    const newKeyBenefitsArr = [];
+    for (let i = 0; i < 15; i += 1) {
+      newKeyBenefitsArr.push(chewyWordsArr[randomNum(75)].toLowerCase());
+    }
+    resultsArr[j] = newKeyBenefitsArr.join(' ');
   }
-  return newKeyBenefitsArr.join(' ');
+  return resultsArr.join('\n');
 };
 
 /* CREATING RANDOM BRAND */
