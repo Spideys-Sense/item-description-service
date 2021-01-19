@@ -1,14 +1,18 @@
-.descriptionTab {
-  width: 800px;
-  height: 800px;
+.descriptionTabClickedTrue {
   display: grid;
   grid-template-rows: 10% 85% 5%;
   grid-template-columns: 60% 40%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #555555;
+  visibility: visible;
   /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
 }
 
-.header {
+.descriptionTabClickedFalse {
+  visibility: hidden;
+}
+
+.descriptionTabClickedTrue .header {
   grid-row-start: 1;
   grid-column-start: 1;
   grid-column-end: 3;
@@ -17,96 +21,103 @@
   justify-content: flex-start;
 }
 
-.description {
+.descriptionTabClickedTrue .description {
   grid-row-start: 2;
   grid-column-start: 1;
+  font-size: 12px;
 }
 
-.DescriptionTab {
+.descriptionTabClickedTrue .DescriptionTab {
   vertical-align: middle;
-  margin: 20px;
-}
-
-.NutritionalInfoTab {
-  vertical-align: middle;
-  margin: 20px;
-}
-
-.FeedingInstructionsTab {
-  vertical-align: middle;
-  margin: 20px;
-}
-
-#isClickedTab {
+  padding: 20px;
   border-top: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
 
-.DescriptionTabText {
+.descriptionTabClickedTrue .NutritionalInfoTab {
+  vertical-align: middle;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.descriptionTabClickedTrue .FeedingInstructionsTab {
+  vertical-align: middle;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.descriptionTabClickedTrue .DescriptionTabText {
   vertical-align: middle;
 }
 
-.NutritionalInfoTabText {
+.descriptionTabClickedTrue .NutritionalInfoTabText {
   vertical-align: middle;
 }
 
-.FeedingInstructionsText {
+.descriptionTabClickedTrue .FeedingInstructionsText {
   vertical-align: middle;
 }
 
-.DescriptionText .title {
+.descriptionTabClickedTrue .DescriptionText .title {
+  padding-top: 15px;
   font-size: 25px;
   font-weight: 300;
   margin: 0 auto;
 }
 
-.keyBenefitsTextBullets {
+.descriptionTabClickedTrue .keyBenefitsTextBullets {
   height: 370px;
 }
 
-.keyBenefitsTextBullets .title {
+.descriptionTabClickedTrue .keyBenefitsTextBullets .title {
   font-size: 25px;
   font-weight: 300;
   margin: 10px 0;
 }
 
-.keyBenefitsTextBullets li {
+.descriptionTabClickedTrue .keyBenefitsTextBullets li {
   margin: 15px 0;
 }
 
-.SideBar {
+.descriptionTabClickedTrue .descriptionTabClickedTrue .SideBar {
   grid-row-start: 2;
   grid-column-start: 2;
+  max-width: 350px;
+  margin: 0 25px;
 }
 
-.SideBarVideo {
+.descriptionTabClickedTrue .SideBarVideo {
   width: 225px;
   margin: 0 auto;
 }
 
-.SideBarVideo .video-title {
+.descriptionTabClickedTrue .SideBarVideo .video-title {
   font-size: 10px;
   text-align: center;
 }
 
-.SideBarGraph {
+.descriptionTabClickedTrue .SideBarGraph {
   display: grid;
-  border: 5px solid black;
+  max-width: 450px;
 }
 
-a {
+.descriptionTabClickedTrue .SideBarGraph ul {
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 6px;
+  border-top: 1px solid rgb(224, 224, 224);
+}
+
+.descriptionTabClickedTrue a {
   color: #0E70BE;
   text-decoration: none;
   font-size: 15px;
 }
 
-/* .SideBarGraph ul::before {
-
-} */
-
-.SideBarGraph li .title {
-  display: block;
+.descriptionTabClickedTrue .SideBarGraph li .title {
   float: left;
   width: 110px;
   font-size: 10px;
@@ -116,14 +127,298 @@ a {
   padding-right: 5px;
 }
 
-.SideBar li .value {
+.descriptionTabClickedTrue .SideBar li .value {
   font-size: 12px;
-    font-weight: 400;
-    line-height: inherit;
-    color: #555;
+  font-weight: 400;
+  color: #555;
 }
 
-.Footer {
+.descriptionTabClickedTrue .Footer {
+  grid-row-start: 3;
+  grid-column-start: 1;
+}
+
+/* Begin Nutritional Tab CSS */
+
+
+.nutritionalInfoTabClickedTrue {
+  display: grid;
+  grid-template-rows: 10% 85% 5%;
+  grid-template-columns: 60% 40%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #555555;
+  visibility: visible;
+  /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
+}
+
+.nutritionalInfoTabClickedFalse {
+  visibility: hidden;
+}
+
+.nutritionalInfoTabClickedTrue .header {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 15px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nutritionalInfoTabClickedTrue .description {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  font-size: 12px;
+}
+
+.nutritionalInfoTabClickedTrue .DescriptionTab {
+  vertical-align: middle;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.nutritionalInfoTabClickedTrue .NutritionalInfoTab {
+  vertical-align: middle;
+  padding: 20px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;}
+
+.nutritionalInfoTabClickedTrue .FeedingInstructionsTab {
+  vertical-align: middle;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.nutritionalInfoTabClickedTrue .DescriptionTabText {
+  vertical-align: middle;
+}
+
+.nutritionalInfoTabClickedTrue .NutritionalInfoTabText {
+  vertical-align: middle;
+}
+
+.nutritionalInfoTabClickedTrue .FeedingInstructionsText {
+  vertical-align: middle;
+}
+
+.nutritionalInfoTabClickedTrue .DescriptionText .title {
+  padding-top: 15px;
+  font-size: 25px;
+  font-weight: 300;
+  margin: 0 auto;
+}
+
+.nutritionalInfoTabClickedTrue .keyBenefitsTextBullets {
+  height: 370px;
+}
+
+.nutritionalInfoTabClickedTrue .keyBenefitsTextBullets .title {
+  font-size: 25px;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+.nutritionalInfoTabClickedTrue .keyBenefitsTextBullets li {
+  margin: 15px 0;
+}
+
+.nutritionalInfoTabClickedTrue .nutritionalInfoTabClickedTrue .SideBar {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  max-width: 350px;
+  margin: 0 25px;
+}
+
+.nutritionalInfoTabClickedTrue .SideBarVideo {
+  width: 225px;
+  margin: 0 auto;
+}
+
+.nutritionalInfoTabClickedTrue .SideBarVideo .video-title {
+  font-size: 10px;
+  text-align: center;
+}
+
+.nutritionalInfoTabClickedTrue .SideBarGraph {
+  display: grid;
+  max-width: 450px;
+}
+
+.nutritionalInfoTabClickedTrue .SideBarGraph ul {
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 6px;
+  border-top: 1px solid rgb(224, 224, 224);
+}
+
+.nutritionalInfoTabClickedTrue a {
+  color: #0E70BE;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.nutritionalInfoTabClickedTrue .SideBarGraph li .title {
+  float: left;
+  width: 110px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: inherit;
+  color: #9b9b9b;
+  padding-right: 5px;
+}
+
+.nutritionalInfoTabClickedTrue .SideBar li .value {
+  font-size: 12px;
+  font-weight: 400;
+  color: #555;
+}
+
+.nutritionalInfoTabClickedTrue .Footer {
+  grid-row-start: 3;
+  grid-column-start: 1;
+}
+
+
+/* Begin Feeding Instructions Tab CSS */
+
+.feedingInstructionsClickedTrue {
+  display: grid;
+  grid-template-rows: 10% 85% 5%;
+  grid-template-columns: 60% 40%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #555555;
+  visibility: visible;
+  /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
+}
+
+.feedingInstructionsClickedFalse {
+  visibility: hidden;
+}
+
+.feedingInstructionsClickedTrue .header {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 15px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.feedingInstructionsClickedTrue .description {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  font-size: 12px;
+}
+
+.feedingInstructionsClickedTrue .DescriptionTab {
+  vertical-align: middle;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.feedingInstructionsClickedTrue .NutritionalInfoTab {
+  vertical-align: middle;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.feedingInstructionsClickedTrue .FeedingInstructionsTab {
+  vertical-align: middle;
+  padding: 20px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.feedingInstructionsClickedTrue .DescriptionTabText {
+  vertical-align: middle;
+}
+
+.feedingInstructionsClickedTrue .NutritionalInfoTabText {
+  vertical-align: middle;
+}
+
+.feedingInstructionsClickedTrue .FeedingInstructionsText {
+  vertical-align: middle;
+}
+
+.feedingInstructionsClickedTrue .DescriptionText .title {
+  padding-top: 15px;
+  font-size: 25px;
+  font-weight: 300;
+  margin: 0 auto;
+}
+
+.feedingInstructionsClickedTrue .keyBenefitsTextBullets {
+  height: 370px;
+}
+
+.feedingInstructionsClickedTrue .keyBenefitsTextBullets .title {
+  font-size: 25px;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+.feedingInstructionsClickedTrue .keyBenefitsTextBullets li {
+  margin: 15px 0;
+}
+
+.feedingInstructionsClickedTrue .feedingInstructionsClickedTrue .SideBar {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  max-width: 350px;
+  margin: 0 25px;
+}
+
+.feedingInstructionsClickedTrue .SideBarVideo {
+  width: 225px;
+  margin: 0 auto;
+}
+
+.feedingInstructionsClickedTrue .SideBarVideo .video-title {
+  font-size: 10px;
+  text-align: center;
+}
+
+.feedingInstructionsClickedTrue .SideBarGraph {
+  display: grid;
+  max-width: 450px;
+}
+
+.feedingInstructionsClickedTrue .SideBarGraph ul {
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 6px;
+  border-top: 1px solid rgb(224, 224, 224);
+}
+
+.feedingInstructionsClickedTrue a {
+  color: #0E70BE;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.feedingInstructionsClickedTrue .SideBarGraph li .title {
+  float: left;
+  width: 110px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: inherit;
+  color: #9b9b9b;
+  padding-right: 5px;
+}
+
+.feedingInstructionsClickedTrue .SideBar li .value {
+  font-size: 12px;
+  font-weight: 400;
+  color: #555;
+}
+
+.feedingInstructionsClickedTrue .Footer {
   grid-row-start: 3;
   grid-column-start: 1;
 }
