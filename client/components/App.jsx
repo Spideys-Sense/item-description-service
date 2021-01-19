@@ -5,6 +5,8 @@ import Footer from './Footer.jsx';
 import SideBar from './SideBar.jsx';
 import NutritionalInfo from './NutritionalInfo.jsx';
 import GuaranteedAnalysis from './GuaranteedAnalysis.jsx';
+import FeedingInstructions from './FeedingInstructions.jsx';
+import TransitionInstructions from './TransitionInstructions.jsx';
 
 const axios = require('axios');
 
@@ -37,8 +39,6 @@ class App extends React.Component {
 
   tabClicked(e) {
     e.preventDefault();
-    console.log('clicked!')
-    console.log(e.target.className)
     if (e.target.className === 'DescriptionTabText') {
       this.setState({
         descriptionIsClicked: true,
@@ -108,15 +108,10 @@ class App extends React.Component {
           <div className="nutritionalInfoTabClickedFalse"></div>
           <div className="feedingInstructionsClickedTrue">
             <Header tabClicked={ this.tabClicked } />
-            <Description
-              description={ this.state.descriptionData }
+            <FeedingInstructions
+              feedingInstructions={ this.state.sideBarData }
+              transitionInstructions={ this.state.descriptionData }
             />
-            <SideBar
-              itemDataTable={ this.state.sideBarData }
-              videoUrl={ this.state.descriptionData[0].videoUrl }
-              brand={ this.state.sideBarData[0].brand }
-            />
-            <Footer brand={ this.state.sideBarData[0].brand } />
           </div>
         </div>
       );
