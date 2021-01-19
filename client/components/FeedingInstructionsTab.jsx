@@ -1,8 +1,8 @@
 import React from 'react';
 
-const FeedingInstructionsTab = () => {
+const FeedingInstructionsTab = ({ tabClicked }) => {
   return (
-    <span className="FeedingInstructionsTab">
+    <span className="FeedingInstructionsTab" onClick={ tabClicked }>
       <p className="FeedingInstructionsTabText">
         Feeding Instructions
       </p>

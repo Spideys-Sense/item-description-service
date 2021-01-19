@@ -3,6 +3,8 @@ import Description from './Description.jsx';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import SideBar from './SideBar.jsx';
+import NutritionalInfo from './NutritionalInfo.jsx';
+import GuaranteedAnalysis from './GuaranteedAnalysis.jsx';
 
 const axios = require('axios');
 
@@ -88,15 +90,12 @@ class App extends React.Component {
           <div className="descriptionTabClickedFalse"></div>
           <div className="nutritionalInfoTabClickedTrue">
             <Header tabClicked={ this.tabClicked } />
-            <Description
+            <NutritionalInfo
               description={ this.state.descriptionData }
             />
-            <SideBar
-              itemDataTable={ this.state.sideBarData }
-              videoUrl={ this.state.descriptionData[0].videoUrl }
-              brand={ this.state.sideBarData[0].brand }
+            <GuaranteedAnalysis
+              guaranteedAnalysis={ this.state.sideBarData }
             />
-            <Footer brand={ this.state.sideBarData[0].brand } />
           </div>
           <div className="feedingInstructionsClickedFalse"></div>
         </div>

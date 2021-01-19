@@ -1,9 +1,9 @@
 import React from 'react';
 
-const NutritionalInfoTab = () => {
+const NutritionalInfoTab = ({ tabClicked }) => {
   return (
     <span className="NutritionalInfoTab">
-      <p className="NutritionalInfoTabText">
+      <p className="NutritionalInfoTabText" onClick={ tabClicked }>
         Nutritional Info
       </p>
     </span>
