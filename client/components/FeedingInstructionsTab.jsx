@@ -3,7 +3,9 @@ import React from 'react';
 const FeedingInstructionsTab = () => {
   return (
     <span className="FeedingInstructionsTab">
-      Feeding Instructions
+      <p className="FeedingInstructionsTabText">
+        Feeding Instructions
+      </p>
     </span>
   );
 };

@@ -32,6 +32,10 @@ class App extends React.Component {
       });
   }
 
+  // tabClicked(e) {
+
+  // }
+
   renderView() {
     if (!this.state.loaded) {
       return <h1>Loading...</h1>;

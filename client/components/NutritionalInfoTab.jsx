@@ -3,7 +3,9 @@ import React from 'react';
 const NutritionalInfoTab = () => {
   return (
     <span className="NutritionalInfoTab">
-      Nutritional Info
+      <p className="NutritionalInfoTabText">
+        Nutritional Info
+      </p>
     </span>
   );
 };
