@@ -7,7 +7,7 @@ const NutritionalInfo = ({ description }) => {
     <div className="NutritionalInfoText">
       <p className="title">Nutritional Info </p>
       <Ingredients ingredients={ description[0] }/>
-      <CaloricContent caloricContent={ description[0] }/>
+      <CaloricContent />
     </div>
   );
 };

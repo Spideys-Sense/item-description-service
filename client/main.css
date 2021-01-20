@@ -5,6 +5,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #555555;
   visibility: visible;
+  margin-left: 17px;
   /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
 }
 
@@ -16,6 +17,7 @@
   grid-row-start: 1;
   grid-column-start: 1;
   grid-column-end: 3;
+  /* height: 54px; */
   font-size: 15px;
   display: flex;
   justify-content: flex-start;
@@ -59,6 +61,10 @@
   margin: 0 auto;
 }
 
+.descriptionTabClickedTrue .DescriptionText .value {
+  line-height: 20px;
+}
+
 .descriptionTabClickedTrue .keyBenefitsTextBullets {
   height: 370px;
 }
@@ -71,6 +77,7 @@
 
 .descriptionTabClickedTrue .keyBenefitsTextBullets li {
   margin: 15px 0;
+  line-height: 20px;
 }
 
 .descriptionTabClickedTrue .descriptionTabClickedTrue .SideBar {
@@ -101,8 +108,13 @@
   align-items: center;
   margin: 0;
   padding: 6px;
-  border-top: 1px solid rgb(224, 224, 224);
+  border-top: 1px solid  rgb(245, 245, 245);;
 }
+
+ul.GATitle {
+  background-color: #F5F5F5;
+}
+
 
 .descriptionTabClickedTrue a {
   color: #0E70BE;
@@ -133,6 +145,17 @@
 
 /* Begin Nutritional Tab CSS */
 
+.nutritionalInfoTabClickedTrue {
+  display: grid;
+  grid-template-rows: 17% 73%;
+  grid-template-columns: 60% 40%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #555555;
+  visibility: visible;
+  margin-left: 17px;
+  /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
+}
+
 .nutritionalInfoTabClickedTrue .DescriptionTab {
   cursor: pointer;
   vertical-align: middle;
@@ -157,15 +180,6 @@
   border-bottom: 1px solid rgb(224, 224, 224);
 }
 
-.nutritionalInfoTabClickedTrue {
-  display: grid;
-  grid-template-rows: 16% 74%;
-  grid-template-columns: 60% 40%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #555555;
-  visibility: visible;
-  /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
-}
 .nutritionalInfoTabClickedTrue .DescriptionTabText {
   vertical-align: middle;
 }
@@ -191,10 +205,11 @@
   grid-column-start: 1;
   font-size: 12px;
   vertical-align: middle;
+  line-height: 20px;
 }
 
 .nutritionalInfoTabClickedTrue .NutritionalInfoText .title {
-  padding-top: 15px;
+  padding-top: 20px;
   font-size: 25px;
   font-weight: 300;
   margin: 0 auto;
@@ -262,11 +277,12 @@
 
 .feedingInstructionsClickedTrue {
   display: grid;
-  grid-template-rows: 13% 97%;
+  grid-template-rows: 9% 91%;
   grid-template-columns: 60% 40%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #555555;
   visibility: visible;
+  margin-left: 17px;
   /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
 }
 
@@ -328,14 +344,15 @@
 .feedingInstructionsClickedTrue .FeedingInstructionsText .title {
   grid-row-start: 2;
   grid-column-start: 1;
-  padding-bottom: 15px;
-  padding-top: 5px;
+  padding-top: 15px;
+  /* padding-top: 5px; */
   font-size: 25px;
   font-weight: 300;
   margin: 0 auto;
 }
 
 .feedingInstructionsClickedTrue .FeedingInstructionsText .value {
+  padding-top: 25px;
   font-size: 10px;
 }
 
@@ -359,6 +376,7 @@ thead {
   grid-row-start: 2;
   grid-column-start: 1;
   height: 370px;
+  line-height: 20px;
 }
 
 .feedingInstructionsClickedTrue .transitionInstructionsText .title {

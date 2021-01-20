@@ -1,10 +1,10 @@
 import React from 'react';
 
-const CaloricContent = ({ caloricContent }) => {
+const CaloricContent = () => {
   return (
     <div className="CaloricContentText">
       <p className="title">Caloric Content</p>
-      <p className="value">{ caloricContent.id } kcal/cup</p>
+      <p className="value">550 kcal/cup</p>
   </div>
   );
 };

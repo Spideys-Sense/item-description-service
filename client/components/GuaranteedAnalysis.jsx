@@ -4,6 +4,9 @@ const GuaranteedAnalysis = ({ guaranteedAnalysis }) => {
   return (
     <div className="GuaranteedAnalysis">
       <li className="GuaranteedAnalysis">
+        <ul className="GATitle">
+          <span className="title">Guaranteed Analysis </span>
+        </ul>
         <ul>
           <span className="title">CRUDE PROTEIN: </span>
           <span className="value">{guaranteedAnalysis[0].itemNumber}</span>
@@ -34,10 +37,6 @@ const GuaranteedAnalysis = ({ guaranteedAnalysis }) => {
         </ul>
       </li>
     </div>
-
-
-
-
     // <div className="GuaranteedAnalysis">
     //   {guaranteedAnalysis[0].id}
     // </div>
