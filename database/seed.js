@@ -15,7 +15,7 @@ const seed = () => {
       const object = {
         descriptionText: random.randomWordList(),
         keyBenefitsText: random.randomKeyBenefitsList(),
-        videoUrl: faker.image.imageUrl(225, 180, 'animals', true, true)
+        videoUrl: faker.image.imageUrl(225, 180, 'animals', true, true),
       };
       descriptionArr[i] = object;
     }

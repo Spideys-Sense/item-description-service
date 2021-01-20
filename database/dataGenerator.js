@@ -32,7 +32,7 @@ const randomKeyBenefitsList = () => {
 
 /* CREATING RANDOM BRAND */
 
-const brandsArr = [ 'BabelBark', 'Babyliss Pro Pet', 'Back to the Roots', 'Bag Balm Pet', 'Bags on Board', 'Banamine', 'Banixx', 'Bark Bars', 'Bark Beauty', 'Bark Bistro Company', 'Bark+', 'Bark2Basics', 'BarkLogic', 'BarksBar', 'Barkworthies', 'Baskerville', 'Bass Brushes', 'Baxter', 'Baxter Boy', 'Bayer', 'Baytril', 'Bear Bear', 'Bearwood Essentials', 'Beautyrest', 'Beaverdam Pet Food', 'Beefeaters', 'Beeps', 'Beggar Dog', 'Bell Automotive', 'Benazepril', 'Bench & Field', 'Benebone', 'Benny Bullys', 'BeOneBreed', 'Bergan', 'Bernies Perfect Poop', 'Bessie + Barnie', 'Bessie for Cats' ];
+const brandsArr = ['BabelBark', 'Babyliss Pro Pet', 'Back to the Roots', 'Bag Balm Pet', 'Bags on Board', 'Banamine', 'Banixx', 'Bark Bars', 'Bark Beauty', 'Bark Bistro Company', 'Bark+', 'Bark2Basics', 'BarkLogic', 'BarksBar', 'Barkworthies', 'Baskerville', 'Bass Brushes', 'Baxter', 'Baxter Boy', 'Bayer', 'Baytril', 'Bear Bear', 'Bearwood Essentials', 'Beautyrest', 'Beaverdam Pet Food', 'Beefeaters', 'Beeps', 'Beggar Dog', 'Bell Automotive', 'Benazepril', 'Bench & Field', 'Benebone', 'Benny Bullys', 'BeOneBreed', 'Bergan', 'Bernies Perfect Poop', 'Bessie + Barnie', 'Bessie for Cats'];
 
 const randomBrandFunc = () => {
   const randomBrand = brandsArr[randomNum(38)];

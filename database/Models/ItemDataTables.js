@@ -32,4 +32,3 @@ ItemDataTables.sync();
 module.exports = {
   ItemDataTables,
 };
-
