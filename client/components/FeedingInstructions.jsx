@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TransitionInstructions from './TransitionInstructions';
 
 const FeedingInstructions = ({ transitionInstructions }) => (
@@ -71,5 +72,9 @@ const FeedingInstructions = ({ transitionInstructions }) => (
     />
   </div>
 );
+
+FeedingInstructions.propTypes = {
+  transitionInstructions: PropTypes.arrayOf.isRequired,
+};
 
 export default FeedingInstructions;
