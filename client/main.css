@@ -1,14 +1,14 @@
+/* Begin Description Tab CSS */
+
 .descriptionTabClickedTrue {
   display: grid;
   grid-template-rows: 10% 85% 5%;
   grid-template-columns: 60% 40%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Roboto, serif;
   color: #555555;
   visibility: visible;
   margin-left: 17px;
-/* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
 }
-
 
 .descriptionTabClickedFalse {
   visibility: hidden;
@@ -18,19 +18,16 @@
   grid-row-start: 1;
   grid-column-start: 1;
   grid-column-end: 3;
-  /* height: 54px; */
   font-size: 15px;
   display: flex;
   justify-content: flex-start;
   background-color: rgb(245, 245, 245);
-  /* transition-property: background-color;
-  transition-duration: 1s; */
 }
 
 .descriptionTabClickedTrue .description {
   grid-row-start: 2;
   grid-column-start: 1;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .descriptionTabClickedTrue .DescriptionTab {
@@ -103,7 +100,6 @@
 
 .descriptionTabClickedTrue .SideBarVideo {
   width: 225px;
-  /* margin: 0 auto; */
   margin-top: 50px;
 }
 
@@ -129,7 +125,6 @@
 ul.GATitle {
   background-color: #F5F5F5;
 }
-
 
 .descriptionTabClickedTrue a {
   color: #0E70BE;
@@ -164,11 +159,10 @@ ul.GATitle {
   display: grid;
   grid-template-rows: 17% 73%;
   grid-template-columns: 60% 40%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Roboto, serif;
   color: #555555;
   visibility: visible;
   margin-left: 17px;
-  /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
 }
 
 .nutritionalInfoTabClickedTrue .DescriptionTab {
@@ -203,32 +197,14 @@ ul.GATitle {
   background-color: white;
 }
 
-
-
-/* .nutritionalInfoTabClickedTrue .DescriptionTabText {
-  vertical-align: middle;
-}
-
-.nutritionalInfoTabClickedTrue .NutritionalInfoTabText {
-  vertical-align: middle;
-}
-
-.nutritionalInfoTabClickedTrue .FeedingInstructionsText {
-  vertical-align: middle;
-} */
-
 .nutritionalInfoTabClickedFalse {
   visibility: hidden;
 }
-/*
-.nutritionalInfoTabClickedTrue .header {
-  height: 69px;
-} */
 
 .nutritionalInfoTabClickedTrue .NutritionalInfoText {
   grid-row-start: 2;
   grid-column-start: 1;
-  font-size: 12px;
+  font-size: 13px;
   vertical-align: middle;
   line-height: 20px;
   max-width: 600px;
@@ -253,7 +229,6 @@ ul.GATitle {
   font-size: 20px;
 }
 
-
 .nutritionalInfoTabClickedTrue .GuaranteedAnalysisTable {
   grid-row-start: 2;
   grid-column-start: 2;
@@ -262,26 +237,6 @@ ul.GATitle {
   display: grid;
   margin-top: 50px;
 }
-/*
-.GuaranteedAnalysis {
-  justify-content: center;
-
-} */
-
-/* .nutritionalInfoTabClickedTrue .SideBarVideo {
-  width: 225px;
-  margin: 0 auto;
-}
-
-.nutritionalInfoTabClickedTrue .SideBarVideo .video-title {
-  font-size: 10px;
-  text-align: center;
-}
-
-.nutritionalInfoTabClickedTrue .GuaranteedAnalysis {
-  display: grid;
-  max-width: 450px;
-} */
 
 .nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv ul {
   vertical-align: middle;
@@ -303,11 +258,10 @@ ul.GATitle {
 }
 
 .nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv li .value {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   color: #555;
 }
-
 
 /* Begin Feeding Instructions Tab CSS */
 
@@ -315,31 +269,15 @@ ul.GATitle {
   display: grid;
   grid-template-rows: 9% 91%;
   grid-template-columns: 60% 40%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Roboto, serif;
   color: #555555;
   visibility: visible;
   margin-left: 17px;
-  /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
 }
 
 .feedingInstructionsClickedFalse {
   visibility: hidden;
 }
-
-/* .feedingInstructionsClickedTrue .header {
-  grid-row-start: 1;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  font-size: 15px;
-  display: flex;
-  justify-content: flex-start;
-} */
-
-/* .feedingInstructionsClickedTrue  {
-  grid-row-start: 2;
-  grid-column-start: 1;
-  font-size: 12px;
-} */
 
 .feedingInstructionsClickedTrue .DescriptionTab {
   cursor: pointer;
@@ -381,15 +319,10 @@ ul.GATitle {
   vertical-align: middle;
 }
 
-/* .feedingInstructionsClickedTrue .FeedingInstructionsText {
-  vertical-align: middle;
-} */
-
 .feedingInstructionsClickedTrue .FeedingInstructionsText .title {
   grid-row-start: 2;
   grid-column-start: 1;
   padding-top: 15px;
-  /* padding-top: 5px; */
   font-size: 25px;
   font-weight: 300;
   margin: 0 auto;
@@ -397,7 +330,7 @@ ul.GATitle {
 
 .feedingInstructionsClickedTrue .FeedingInstructionsText .value {
   padding-top: 25px;
-  font-size: 10px;
+  font-size: 12px;
   max-width: 600px;
   padding-right: 15px;
 }
@@ -432,7 +365,7 @@ thead {
 }
 
 .feedingInstructionsClickedTrue .transitionInstructionsText .value {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 300;
   margin: 10px 0;
   max-width: 600px;
@@ -465,7 +398,7 @@ thead {
 .feedingInstructionsClickedTrue .SideBarGraph li .title {
   float: left;
   width: 110px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   line-height: inherit;
   color: #9b9b9b;
@@ -477,8 +410,3 @@ thead {
   font-weight: 400;
   color: #555;
 }
-
-/* .feedingInstructionsClickedTrue .Footer {
-  grid-row-start: 3;
-  grid-column-start: 1;
-} */
