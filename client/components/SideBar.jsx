@@ -1,6 +1,6 @@
 import React from 'react';
-import SideBarGraph from './SideBarGraph.jsx';
-import SideBarVideo from './SideBarVideo.jsx';
+import SideBarGraph from './SideBarGraph';
+import SideBarVideo from './SideBarVideo';
 
 const SideBar = ({ itemDataTable, videoUrl, brand }) => {
   return (

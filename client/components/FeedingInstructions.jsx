@@ -1,5 +1,5 @@
 import React from 'react';
-import TransitionInstructions from './TransitionInstructions.jsx';
+import TransitionInstructions from './TransitionInstructions';
 
 const FeedingInstructions = ({ feedingInstructions, transitionInstructions }) => {
   return (
@@ -9,7 +9,7 @@ const FeedingInstructions = ({ feedingInstructions, transitionInstructions }) =>
         <div className="value">
           <table>
             <thead>
-              <tr className="tableHeaders">
+              <tr>
                 <th>Weight</th>
                 <th>Less Than 4 Months Daily Feeding (cup)</th>
                 <th>4 to 6 Months Daily Feeding (cup)</th>

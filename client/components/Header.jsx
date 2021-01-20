@@ -1,7 +1,7 @@
 import React from 'react';
-import DescriptionTab from './DescriptionTab.jsx';
-import NutritionalInfoTab from './NutritionalInfoTab.jsx';
-import FeedingInstructionsTab from './FeedingInstructionsTab.jsx';
+import DescriptionTab from './DescriptionTab';
+import NutritionalInfoTab from './NutritionalInfoTab';
+import FeedingInstructionsTab from './FeedingInstructionsTab';
 
 const Header = ({ tabClicked }) => {
   return (

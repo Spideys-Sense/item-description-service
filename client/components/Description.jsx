@@ -1,6 +1,6 @@
 import React from 'react';
-import DescriptionText from './DescriptionText.jsx'
-import KeyBenefitsText from './KeyBenefitsText.jsx'
+import DescriptionText from './DescriptionText';
+import KeyBenefitsText from './KeyBenefitsText';
 
 const Description = ({ description }) => {
   return (

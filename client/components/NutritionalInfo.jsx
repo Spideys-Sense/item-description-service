@@ -1,6 +1,6 @@
 import React from 'react';
-import Ingredients from './Ingredients.jsx';
-import CaloricContent from './CaloricContent.jsx';
+import Ingredients from './Ingredients';
+import CaloricContent from './CaloricContent';
 
 const NutritionalInfo = ({ description }) => {
   return (

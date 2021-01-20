@@ -6,8 +6,9 @@
   color: #555555;
   visibility: visible;
   margin-left: 17px;
-  /* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
+/* Roboto, "Franklin Gothic Medium", Tahoma, sans-seri */
 }
+
 
 .descriptionTabClickedFalse {
   visibility: hidden;
@@ -22,6 +23,8 @@
   display: flex;
   justify-content: flex-start;
   background-color: rgb(245, 245, 245);
+  /* transition-property: background-color;
+  transition-duration: 1s; */
 }
 
 .descriptionTabClickedTrue .description {
@@ -34,9 +37,9 @@
   cursor: pointer;
   vertical-align: middle;
   padding: 20px;
-  border-top: 1px solid orange;
-  border-left: 1px solid rgb(224, 224, 224);
-  border-right: 1px solid rgb(224, 224, 224);
+  border-top: 2px solid orange;
+  border-left: 2px solid rgb(224, 224, 224);
+  border-right: 2px solid rgb(224, 224, 224);
   background-color: white;
 }
 
@@ -44,14 +47,22 @@
   cursor: pointer;
   vertical-align: middle;
   padding: 20px;
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 2px solid rgb(224, 224, 224);
+}
+
+.descriptionTabClickedTrue .NutritionalInfoTab:hover {
+  background-color: white;
 }
 
 .descriptionTabClickedTrue .FeedingInstructionsTab {
   cursor: pointer;
   vertical-align: middle;
   padding: 20px;
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 2px solid rgb(224, 224, 224);
+}
+
+.descriptionTabClickedTrue .FeedingInstructionsTab:hover {
+  background-color: white;
 }
 
 .descriptionTabClickedTrue .DescriptionText .title {
@@ -63,10 +74,13 @@
 
 .descriptionTabClickedTrue .DescriptionText .value {
   line-height: 20px;
+  max-width: 600px;
+  margin-right: 25px;
 }
 
 .descriptionTabClickedTrue .keyBenefitsTextBullets {
   height: 370px;
+  margin-right: 25px;
 }
 
 .descriptionTabClickedTrue .keyBenefitsTextBullets .title {
@@ -89,7 +103,8 @@
 
 .descriptionTabClickedTrue .SideBarVideo {
   width: 225px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-top: 50px;
 }
 
 .descriptionTabClickedTrue .SideBarVideo .video-title {
@@ -99,7 +114,7 @@
 
 .descriptionTabClickedTrue .SideBarGraph {
   display: grid;
-  max-width: 450px;
+  max-width: 200px;
 }
 
 .descriptionTabClickedTrue .SideBarGraph ul {
@@ -160,16 +175,20 @@ ul.GATitle {
   cursor: pointer;
   vertical-align: middle;
   padding: 20px;
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 2px solid rgb(224, 224, 224);
+}
+
+.nutritionalInfoTabClickedTrue .DescriptionTab:hover {
+  background-color: white;
 }
 
 .nutritionalInfoTabClickedTrue .NutritionalInfoTab {
   cursor: pointer;
   vertical-align: middle;
   padding: 20px;
-  border-top: 1px solid orange;
-  border-left: 1px solid rgb(224, 224, 224);
-  border-right: 1px solid rgb(224, 224, 224);
+  border-top: 2px solid orange;
+  border-left: 2px solid rgb(224, 224, 224);
+  border-right: 2px solid rgb(224, 224, 224);
   background-color: white;
 }
 
@@ -177,10 +196,16 @@ ul.GATitle {
   cursor: pointer;
   vertical-align: middle;
   padding: 20px;
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border-bottom: 2px solid rgb(224, 224, 224);
 }
 
-.nutritionalInfoTabClickedTrue .DescriptionTabText {
+.nutritionalInfoTabClickedTrue .FeedingInstructionsTab:hover {
+  background-color: white;
+}
+
+
+
+/* .nutritionalInfoTabClickedTrue .DescriptionTabText {
   vertical-align: middle;
 }
 
@@ -190,7 +215,7 @@ ul.GATitle {
 
 .nutritionalInfoTabClickedTrue .FeedingInstructionsText {
   vertical-align: middle;
-}
+} */
 
 .nutritionalInfoTabClickedFalse {
   visibility: hidden;
@@ -206,6 +231,7 @@ ul.GATitle {
   font-size: 12px;
   vertical-align: middle;
   line-height: 20px;
+  max-width: 600px;
 }
 
 .nutritionalInfoTabClickedTrue .NutritionalInfoText .title {
@@ -219,18 +245,28 @@ ul.GATitle {
   font-size: 20px;
 }
 
+.nutritionalInfoTabClickedTrue .IngredientsText .value {
+  margin-right: 25px;
+}
+
 .nutritionalInfoTabClickedTrue .CaloricContentText .title {
   font-size: 20px;
 }
 
 
-.nutritionalInfoTabClickedTrue .GuaranteedAnalysis {
+.nutritionalInfoTabClickedTrue .GuaranteedAnalysisTable {
   grid-row-start: 2;
   grid-column-start: 2;
-  max-width: 350px;
+  max-width: 250px;
   margin: 0 25px;
   display: grid;
+  margin-top: 50px;
 }
+/*
+.GuaranteedAnalysis {
+  justify-content: center;
+
+} */
 
 /* .nutritionalInfoTabClickedTrue .SideBarVideo {
   width: 225px;
@@ -247,7 +283,7 @@ ul.GATitle {
   max-width: 450px;
 } */
 
-.nutritionalInfoTabClickedTrue .GuaranteedAnalysis ul {
+.nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv ul {
   vertical-align: middle;
   display: flex;
   align-items: center;
@@ -256,7 +292,7 @@ ul.GATitle {
   border-top: 1px solid rgb(224, 224, 224);
 }
 
-.nutritionalInfoTabClickedTrue .GuaranteedAnalysis li .title {
+.nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv li .title {
   float: left;
   width: 110px;
   font-size: 10px;
@@ -266,7 +302,7 @@ ul.GATitle {
   padding-right: 5px;
 }
 
-.nutritionalInfoTabClickedTrue .GuaranteedAnalysis li .value {
+.nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv li .value {
   font-size: 12px;
   font-weight: 400;
   color: #555;
@@ -312,11 +348,19 @@ ul.GATitle {
   border-bottom: 2px solid rgb(224, 224, 224);
 }
 
+.feedingInstructionsClickedTrue .DescriptionTab:hover {
+  background-color: white;
+}
+
 .feedingInstructionsClickedTrue .NutritionalInfoTab {
   cursor: pointer;
   vertical-align: middle;
   padding: 20px;
   border-bottom: 2px solid rgb(224, 224, 224);
+}
+
+.feedingInstructionsClickedTrue .NutritionalInfoTab:hover {
+  background-color: white;
 }
 
 .feedingInstructionsClickedTrue .FeedingInstructionsTab {
@@ -354,6 +398,8 @@ ul.GATitle {
 .feedingInstructionsClickedTrue .FeedingInstructionsText .value {
   padding-top: 25px;
   font-size: 10px;
+  max-width: 600px;
+  padding-right: 15px;
 }
 
 th {
@@ -389,6 +435,7 @@ thead {
   font-size: 12px;
   font-weight: 300;
   margin: 10px 0;
+  max-width: 600px;
 }
 
 .feedingInstructionsClickedTrue .keyBenefitsTextBullets li {

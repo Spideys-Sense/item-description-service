@@ -1,12 +1,11 @@
 import React from 'react';
-import Description from './Description.jsx';
-import Header from './Header.jsx';
-import Footer from './Footer.jsx';
-import SideBar from './SideBar.jsx';
-import NutritionalInfo from './NutritionalInfo.jsx';
-import GuaranteedAnalysis from './GuaranteedAnalysis.jsx';
-import FeedingInstructions from './FeedingInstructions.jsx';
-import TransitionInstructions from './TransitionInstructions.jsx';
+import Description from './Description';
+import Header from './Header';
+import Footer from './Footer';
+import SideBar from './SideBar';
+import NutritionalInfo from './NutritionalInfo';
+import GuaranteedAnalysis from './GuaranteedAnalysis';
+import FeedingInstructions from './FeedingInstructions';
 
 const axios = require('axios');
 
@@ -16,7 +15,7 @@ class App extends React.Component {
     this.state = {
       id: 1,
       descriptionData: [],
-      itemTableData: [],
+      sideBarData: [],
       loaded: false,
       descriptionIsClicked: true,
       nutritionalInfoTabClicked: false,
@@ -61,6 +60,7 @@ class App extends React.Component {
   }
 
   renderView() {
+    const { descriptionData } = this.state;
     if (!this.state.loaded) {
       return <h1>Loading...</h1>;
     }
@@ -70,7 +70,7 @@ class App extends React.Component {
           <div className="descriptionTabClickedTrue">
             <Header tabClicked={ this.tabClicked }/>
             <Description
-              description={ this.state.descriptionData }
+              description={descriptionData}
             />
             <SideBar
               itemDataTable={ this.state.sideBarData }

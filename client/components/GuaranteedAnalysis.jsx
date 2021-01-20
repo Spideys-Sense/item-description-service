@@ -2,8 +2,8 @@ import React from 'react';
 
 const GuaranteedAnalysis = ({ guaranteedAnalysis }) => {
   return (
-    <div className="GuaranteedAnalysis">
-      <li className="GuaranteedAnalysis">
+    <div className="GuaranteedAnalysisDiv">
+      <li className="GuaranteedAnalysisTable">
         <ul className="GATitle">
           <span className="title">Guaranteed Analysis </span>
         </ul>
