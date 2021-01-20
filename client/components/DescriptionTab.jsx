@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 const DescriptionTab = ({ tabClicked }) => (
   <span
-  className="DescriptionTab"
-  onClick={tabClicked}
-  aria-hidden="true"
-  rule="button"
->
+    className="DescriptionTab"
+    onClick={tabClicked}
+    aria-hidden="true"
+    rule="button"
+  >
     <p className="DescriptionTabText">
       Description Tab
     </p>
