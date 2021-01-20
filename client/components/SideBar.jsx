@@ -5,8 +5,8 @@ import SideBarVideo from './SideBarVideo';
 const SideBar = ({ itemDataTable, videoUrl, brand }) => {
   return (
     <div className="SideBar">
-      <SideBarVideo videoUrl={ videoUrl } brand={ brand } />
-      <SideBarGraph itemDataTable={ itemDataTable[0] } />
+      <SideBarVideo videoUrl={videoUrl} brand={brand} />
+      <SideBarGraph itemDataTable={itemDataTable[0]} />
     </div>
   );
 };

@@ -26,7 +26,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/${this.state.id}/information`)
+    const { id } = this.state;
+    axios.get(`/api/${id}/information`)
       .then(({ data }) => {
         this.setState({
           descriptionData: data[0],
@@ -43,92 +44,82 @@ class App extends React.Component {
         descriptionIsClicked: true,
         nutritionalInfoTabClicked: false,
         feedingInstructionsClicked: false,
-      })
+      });
     } else if (e.target.className === 'NutritionalInfoTabText') {
       this.setState({
         descriptionIsClicked: false,
         nutritionalInfoTabClicked: true,
         feedingInstructionsClicked: false,
-      })
+      });
     } else if (e.target.className === 'FeedingInstructionsTabText') {
       this.setState({
         descriptionIsClicked: false,
         nutritionalInfoTabClicked: false,
         feedingInstructionsClicked: true,
-      })
+      });
     }
   }
 
   renderView() {
-    const { descriptionData } = this.state;
-    if (!this.state.loaded) {
+    const {
+      descriptionData, sideBarData, loaded,
+      descriptionIsClicked, nutritionalInfoTabClicked, feedingInstructionsClicked,
+    } = this.state;
+    if (!loaded) {
       return <h1>Loading...</h1>;
     }
-    if (this.state.descriptionIsClicked) {
+    if (descriptionIsClicked) {
       return (
         <div>
           <div className="descriptionTabClickedTrue">
-            <Header tabClicked={ this.tabClicked }/>
+            <Header tabClicked={this.tabClicked} />
             <Description
               description={descriptionData}
             />
             <SideBar
-              itemDataTable={ this.state.sideBarData }
-              videoUrl={ this.state.descriptionData[0].videoUrl }
-              brand={ this.state.sideBarData[0].brand }
+              itemDataTable={sideBarData}
+              videoUrl={descriptionData[0].videoUrl}
+              brand={sideBarData[0].brand}
             />
-            <Footer brand={ this.state.sideBarData[0].brand } />
+            <Footer brand={sideBarData[0].brand} />
           </div>
-          <div className="nutritionalInfoTabClickedFalse"></div>
-          <div className="feedingInstructionsClickedFalse"></div>
+          <div className="nutritionalInfoTabClickedFalse" />
+          <div className="feedingInstructionsClickedFalse" />
         </div>
       );
     }
-    if (this.state.nutritionalInfoTabClicked) {
+    if (nutritionalInfoTabClicked) {
       return (
         <div>
-          <div className="descriptionTabClickedFalse"></div>
+          <div className="descriptionTabClickedFalse" />
           <div className="nutritionalInfoTabClickedTrue">
-            <Header tabClicked={ this.tabClicked } />
+            <Header tabClicked={this.tabClicked} />
             <NutritionalInfo
-              description={ this.state.descriptionData }
+              description={descriptionData}
             />
             <GuaranteedAnalysis
-              guaranteedAnalysis={ this.state.sideBarData }
+              guaranteedAnalysis={sideBarData}
             />
           </div>
-          <div className="feedingInstructionsClickedFalse"></div>
+          <div className="feedingInstructionsClickedFalse" />
         </div>
       );
     }
-    if (this.state.feedingInstructionsClicked) {
+    if (feedingInstructionsClicked) {
       return (
         <div>
-          <div className="descriptionTabClickedFalse"></div>
-          <div className="nutritionalInfoTabClickedFalse"></div>
+          <div className="descriptionTabClickedFalse" />
+          <div className="nutritionalInfoTabClickedFalse" />
           <div className="feedingInstructionsClickedTrue">
-            <Header tabClicked={ this.tabClicked } />
+            <Header tabClicked={this.tabClicked} />
             <FeedingInstructions
-              feedingInstructions={ this.state.sideBarData }
-              transitionInstructions={ this.state.descriptionData }
+              feedingInstructions={sideBarData}
+              transitionInstructions={descriptionData}
             />
           </div>
         </div>
       );
     }
-    // } else if (this.state.nutritionalInfoTabClicked) {
-    //   return (
-    //     <div className="nutritionalInfoTab">
-    //       <h1>Inside Nutritional Info Tab</h1>
-    //     </div>
-    //   )
-    // } else if (this.state.feedingInstructionsClicked) {
-    //   return (
-    //     <div className="feedingInstructionsTab">
-    //       <h1>Inside Feeding Instructions Tab</h1>
-    //     </div>
-    //   )
-    // }
   }
 
   render() {
@@ -138,7 +129,6 @@ class App extends React.Component {
       </main>
     );
   }
-
 }
 
 export default App;

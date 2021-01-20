@@ -37,9 +37,6 @@ const GuaranteedAnalysis = ({ guaranteedAnalysis }) => {
         </ul>
       </li>
     </div>
-    // <div className="GuaranteedAnalysis">
-    //   {guaranteedAnalysis[0].id}
-    // </div>
   );
 };
 

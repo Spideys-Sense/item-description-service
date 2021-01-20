@@ -6,9 +6,9 @@ import FeedingInstructionsTab from './FeedingInstructionsTab';
 const Header = ({ tabClicked }) => {
   return (
     <div className="header">
-      <DescriptionTab tabClicked={ tabClicked } />
-      <NutritionalInfoTab tabClicked={ tabClicked } />
-      <FeedingInstructionsTab tabClicked={ tabClicked } />
+      <DescriptionTab tabClicked={tabClicked} />
+      <NutritionalInfoTab tabClicked={tabClicked} />
+      <FeedingInstructionsTab tabClicked={tabClicked} />
     </div>
   );
 };

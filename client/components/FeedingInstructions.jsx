@@ -1,32 +1,31 @@
 import React from 'react';
 import TransitionInstructions from './TransitionInstructions';
 
-const FeedingInstructions = ({ feedingInstructions, transitionInstructions }) => {
-  return (
-    <div>
-      <div className="FeedingInstructionsText">
-        <p className="title">Feeding Instructions </p>
-        <div className="value">
-          <table>
-            <thead>
-              <tr>
-                <th>Weight</th>
-                <th>Less Than 4 Months Daily Feeding (cup)</th>
-                <th>4 to 6 Months Daily Feeding (cup)</th>
-              </tr>
-            </thead>
+const FeedingInstructions = ({ transitionInstructions }) => (
+  <div>
+    <div className="FeedingInstructionsText">
+      <p className="title">Feeding Instructions </p>
+      <div className="value">
+        <table>
+          <thead>
+            <tr>
+              <th>Weight</th>
+              <th>Less Than 4 Months Daily Feeding (cup)</th>
+              <th>4 to 6 Months Daily Feeding (cup)</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <td className="weightCol">1 LBS</td>
               <td>1/4</td>
-              <td></td>
+              <td />
             </tr>
           </tbody>
           <tbody>
             <tr>
               <td className="weightCol">2 LBS</td>
               <td>3/8</td>
-              <td></td>
+              <td />
             </tr>
           </tbody>
           <tbody>
@@ -53,25 +52,24 @@ const FeedingInstructions = ({ feedingInstructions, transitionInstructions }) =>
           <tbody>
             <tr>
               <td className="weightCol">7 LBS</td>
-              <td></td>
+              <td />
               <td>7/8</td>
             </tr>
           </tbody>
           <tbody>
             <tr>
               <td className="weightCol">8 LBS</td>
-              <td></td>
+              <td />
               <td>1</td>
             </tr>
           </tbody>
-          </table>
-        </div>
+        </table>
       </div>
-        <TransitionInstructions
-          transitionInstructions={ transitionInstructions }
-        />
     </div>
-  );
-};
+    <TransitionInstructions
+      transitionInstructions={transitionInstructions}
+    />
+  </div>
+);
 
 export default FeedingInstructions;
