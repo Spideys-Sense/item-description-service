@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Description from './Description';
 import Header from './Header';
 import Footer from './Footer';
@@ -6,8 +7,6 @@ import SideBar from './SideBar';
 import NutritionalInfo from './NutritionalInfo';
 import GuaranteedAnalysis from './GuaranteedAnalysis';
 import FeedingInstructions from './FeedingInstructions';
-
-const axios = require('axios');
 
 class App extends React.Component {
   constructor() {
