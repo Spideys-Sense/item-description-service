@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-const { Descriptions } = require('./Descriptions.js');
 const { db } = require('../index.js');
+// const { Descriptions } = require('./Descriptions.js');
 
 const FoodItemsTab = db.define('FoodItemsTab', {
   id: {

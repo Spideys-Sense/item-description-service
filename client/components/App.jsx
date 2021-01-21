@@ -1,11 +1,12 @@
 import React from 'react';
-
-const axios = require('axios');
-
-import Description from './Description.jsx';
-import Header from './Header.jsx';
-import Footer from './Footer.jsx';
-// import styles from './home-page.css';
+import axios from 'axios';
+import Description from './Description';
+import Header from './Header';
+import Footer from './Footer';
+import SideBar from './SideBar';
+import NutritionalInfo from './NutritionalInfo';
+import GuaranteedAnalysis from './GuaranteedAnalysis';
+import FeedingInstructions from './FeedingInstructions';
 
 class App extends React.Component {
   constructor() {
@@ -13,58 +14,120 @@ class App extends React.Component {
     this.state = {
       id: 1,
       descriptionData: [],
-      itemTableData: [],
-      loaded: false
-    }
+      sideBarData: [],
+      loaded: false,
+      descriptionIsClicked: true,
+      nutritionalInfoTabClicked: false,
+      feedingInstructionsClicked: false,
+    };
     this.renderView = this.renderView.bind(this);
+    this.tabClicked = this.tabClicked.bind(this);
   }
+
   componentDidMount() {
-    axios.get(`/api/${this.state.id}/information`)
-      // .then((data) => {
-      //   // this.setState({
-      //   //   descriptionData: data[0],
-      //   //   itemTableData: data[1],
-      //   //   loaded: true
-      //   // })
-      //   return data;
-      // })
-      .then((dataFromApi) => {
-        console.log('API Working: ', dataFromApi)
-      })
+    const { id } = this.state;
+    axios.get(`/api/${id}/information`)
+      .then(({ data }) => {
+        this.setState({
+          descriptionData: data[0],
+          sideBarData: data[1],
+          loaded: true,
+        });
+      });
+  }
+
+  tabClicked(e) {
+    e.preventDefault();
+    if (e.target.className === 'DescriptionTabText') {
+      this.setState({
+        descriptionIsClicked: true,
+        nutritionalInfoTabClicked: false,
+        feedingInstructionsClicked: false,
+      });
+    } else if (e.target.className === 'NutritionalInfoTabText') {
+      this.setState({
+        descriptionIsClicked: false,
+        nutritionalInfoTabClicked: true,
+        feedingInstructionsClicked: false,
+      });
+    } else if (e.target.className === 'FeedingInstructionsTabText') {
+      this.setState({
+        descriptionIsClicked: false,
+        nutritionalInfoTabClicked: false,
+        feedingInstructionsClicked: true,
+      });
+    }
   }
 
   renderView() {
-    if (!this.state.loaded) {
-      return <h1>Loading...</h1>
-    } else {
-      return (
-        <div className="descriptionTab">
-          <div className="headers">
-            <Header />
-          </div>
-          <Description
-          description={ this.state.descriptionData }
-          itemDataTable={ this.state.itemTableData }
-          />
-          <div className="footers">
-            <Footer />
-          </div>
-          {/* <h1>{ this.state.currentData.data.descriptionText }</h1>
-          <h1>{ this.state.currentData.data.keyBenefitsText }</h1>
-          <h1>{ this.state.currentData.data.videoUrl }</h1> */}
-        </div>
-      )
-      // id, itemDataTable_id, descriptionText, keyBenefitsText, videoUrl, createdAt, updatedAt}
+    const {
+      descriptionData, sideBarData, loaded,
+      descriptionIsClicked, nutritionalInfoTabClicked, feedingInstructionsClicked,
+    } = this.state;
+    if (!loaded) {
+      return <h1>Loading...</h1>;
     }
+    if (descriptionIsClicked) {
+      return (
+        <div>
+          <div className="descriptionTabClickedTrue">
+            <Header tabClicked={this.tabClicked} />
+            <Description
+              description={descriptionData}
+            />
+            <SideBar
+              itemDataTable={sideBarData}
+              videoUrl={descriptionData[0].videoUrl}
+              brand={sideBarData[0].brand}
+            />
+            <Footer brand={sideBarData[0].brand} />
+          </div>
+          <div className="nutritionalInfoTabClickedFalse" />
+          <div className="feedingInstructionsClickedFalse" />
+        </div>
+      );
+    }
+    if (nutritionalInfoTabClicked) {
+      return (
+        <div>
+          <div className="descriptionTabClickedFalse" />
+          <div className="nutritionalInfoTabClickedTrue">
+            <Header tabClicked={this.tabClicked} />
+            <NutritionalInfo
+              description={descriptionData}
+            />
+            <GuaranteedAnalysis
+              guaranteedAnalysis={sideBarData}
+            />
+          </div>
+          <div className="feedingInstructionsClickedFalse" />
+        </div>
+      );
+    }
+    if (feedingInstructionsClicked) {
+      return (
+        <div>
+          <div className="descriptionTabClickedFalse" />
+          <div className="nutritionalInfoTabClickedFalse" />
+          <div className="feedingInstructionsClickedTrue">
+            <Header tabClicked={this.tabClicked} />
+            <FeedingInstructions
+              feedingInstructions={sideBarData}
+              transitionInstructions={descriptionData}
+            />
+          </div>
+        </div>
+      );
+    }
+    return null;
   }
 
   render() {
     return (
       <main>
-        {/* <div className={styles.title}>Hello</div> */}
         { this.renderView() }
       </main>
-    )
+    );
   }
 }
 

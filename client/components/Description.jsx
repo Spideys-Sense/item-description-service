@@ -1,14 +1,21 @@
 import React from 'react';
-import ItemDataTable from './ItemDataTable.jsx'
+import PropTypes from 'prop-types';
+import DescriptionText from './DescriptionText';
+import KeyBenefitsText from './KeyBenefitsText';
 
-const Description = ({description, itemDataTable}) => {
-  return (
-    <div className="description">
-        {description[0].descriptionText}
-        {description[0].keyBenefitsText}
-      <ItemDataTable itemDataTable={itemDataTable} videoUrl={description[0].videoUrl}/>
-    </div>
-  )
-}
+const Description = ({ description }) => (
+  <div className="description">
+    <DescriptionText
+      descriptionText={description[0].descriptionText}
+    />
+    <KeyBenefitsText
+      keyBenefitsText={description[0].keyBenefitsText}
+    />
+  </div>
+);
+
+Description.propTypes = {
+  description: PropTypes.arrayOf(PropTypes.shape).isRequired,
+};
 
 export default Description;
