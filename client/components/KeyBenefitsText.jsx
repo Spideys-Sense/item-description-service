@@ -8,7 +8,6 @@ const KeyBenefitsText = ({ keyBenefitsText }) => {
       <p className="title">Key Benefits: </p>
       <ul className="KeyBenefitsText">
         {keyBenefitsTextBullets.map((bulletPoint, index) => (
-          // eslint-disable-next-line react/no-array-index-key
           <li key={index}>
             { bulletPoint }
           </li>

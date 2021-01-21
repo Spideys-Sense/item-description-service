@@ -18,6 +18,7 @@
     "verbose": true
   },
   "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "axios": "^0.21.1",
