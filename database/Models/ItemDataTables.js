@@ -25,11 +25,11 @@ const ItemDataTables = db.define('ItemDataTables', {
   specialDiet: {
     type: Sequelize.STRING,
   },
-})
+});
 
-ItemDataTables.sync()
-
+ItemDataTables.sync();
 
 module.exports = {
-  ItemDataTables
-}
+  ItemDataTables,
+};
+

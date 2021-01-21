@@ -1,17 +1,29 @@
 const express = require('express');
+const path = require('path');
 
 const app = express();
 const PORT = 8080;
 
-const bodyParser = require('body-parser')
+const { Descriptions } = require('../database/Models/Descriptions.js');
+const { ItemDataTables } = require('../database/Models/ItemDataTables.js');
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '../dist')));
 
-app.get('/', (req, res) => {
-  res.status(200).send('In Get!');
+app.get('/api/:id/information', (req, res) => {
+  const results = Promise.all([
+    Descriptions.findAll({ where: { id: req.params.id } }),
+    ItemDataTables.findAll({ where: { id: req.params.id } }),
+  ]);
+
+  results.then((data) => {
+    res.send(data);
+  });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
+
+module.exports = server;

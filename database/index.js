@@ -7,5 +7,5 @@ const db = new Sequelize('iteminformation', 'root', '', {
 });
 
 module.exports = {
-  db
-}
+  db,
+};

@@ -13,6 +13,6 @@ const FoodItemsTab = db.define('FoodItemsTab', {
     model: 'Descriptions',
     key: 'id',
   },
-})
+});
 
 FoodItemsTab.sync();

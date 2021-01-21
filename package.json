@@ -8,15 +8,20 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack --watch",
     "start": "nodemon server/index",
-    "test": "mocha"
+    "build": "webpack --config webpack.config.js --watch",
+    "test": "mocha",
+    "react-test": "jest",
+    "seed": "node database/seed.js"
   },
   "dependencies": {
     "@babel/preset-react": "^7.12.10",
+    "axios": "^0.21.1",
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "faker": "^5.1.0",
+    "jquery": "^3.5.1",
     "mocha": "^8.2.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
@@ -39,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.0.0",
+    "jest": "^26.6.3",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.14.0",
