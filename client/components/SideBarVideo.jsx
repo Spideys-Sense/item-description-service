@@ -6,6 +6,7 @@ const SideBarVideo = ({ videoUrl, brand }) => (
     <img src={videoUrl} alt="randomly generated animal that is taking role of placeholder for video" />
     <p className="video-title">
       Watch our
+      {' '}
       {brand}
       {' '}
       video

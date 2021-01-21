@@ -4,7 +4,10 @@
         [
             "@babel/preset-env",
             {
-                "modules": false
+                //refers to different module types
+                //allows you to use different ways to import files
+                //and modules from different ES's (ES6, ES5, etc.)
+                "modules": "auto"
             }
         ]
     ]
