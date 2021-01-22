@@ -66,7 +66,7 @@ const randomSpecialDietFunc = () => {
 
 /* CREATING RANDOM DETAILED TITLE */
 const randomDetailedTitleFunc = () => {
-  let title = randomBrandFunc();
+  title = '';
   for (let k = 0; k < 10; k += 1) {
     let randomWord = faker.random.arrayElement(chewyWordsArr);
     title += ' ' + randomWord;

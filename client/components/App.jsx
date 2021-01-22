@@ -123,6 +123,7 @@ class App extends React.Component {
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
             leftButtonIsClicked={leftButtonIsClicked}
+            brand={sideBarData[0].brand}
           />
         </div>
       );
@@ -147,6 +148,7 @@ class App extends React.Component {
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
             leftButtonIsClicked={leftButtonIsClicked}
+            brand={sideBarData[0].brand}
           />
         </div>
       );
@@ -169,6 +171,7 @@ class App extends React.Component {
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
             leftButtonIsClicked={leftButtonIsClicked}
+            brand={sideBarData[0].brand}
           />
         </div>
       );

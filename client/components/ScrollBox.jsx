@@ -12,12 +12,13 @@ const StyledWrapper = styled.span`
 `;
 
 const StyledDivBox = styled.div`
+padding: 10px;
 `;
 
 const StyledDiv = styled.div`
-  border: 1px solid black;
   display: grid;
   grid-template-columns: (10, 10%);
+  padding: 20px 0;
   overflow-x: hidden;
   `;
 
@@ -52,9 +53,12 @@ const StyledRightButton = styled.button`
 
 const Styledh1 = styled.h1`
   display: inline;
+  font-family: Roboto, serif;
+  font-size: 25px;
+  color: #333333;
 `;
 
-const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked }) => {
+const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked, brand }) => {
   return (
     <StyledDivBox>
       <Styledh1>Pet Lovers Also Bought</Styledh1>
@@ -66,7 +70,7 @@ const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftBu
           </StyledArrows>
           <StyledDiv rightButtonIsClicked={rightButtonIsClicked}>
             {scrollData.map((itemData, index) => {
-              return <ScrollItem itemData={itemData} index={index + 1} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked}/>;
+              return <ScrollItem itemData={itemData} index={index + 1} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked} brand={brand}/>;
             })}
           </StyledDiv>
         </StyledWrapper>
@@ -78,7 +82,7 @@ const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftBu
           </StyledArrows>
           <StyledDiv rightButtonIsClicked={rightButtonIsClicked}>
             {scrollData.map((itemData, index) => {
-              return <ScrollItem itemData={itemData} index={index + 1} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked}/>;
+              return <ScrollItem itemData={itemData} index={index + 1} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked} brand={brand}/>;
             })}
           </StyledDiv>
         </StyledWrapper>
