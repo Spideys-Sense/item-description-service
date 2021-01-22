@@ -7,9 +7,13 @@ import styled from 'styled-components';
 const StyledSpan = styled.span`
   grid-column-start: ${props => props.index ? props.index : 'hello'};
   text-align: center;
+  padding: 0 40px;
   :hover {
     cursor: pointer;
   }
+  transition: ${props => !props.rightButtonIsClicked ? 'transform 5s' : '' }
+  transform: translateX(300px);
+  //ease-in-out 0.5s
 `;
 
 const StyledImg = styled.img`
@@ -23,7 +27,6 @@ const Styledh3 = styled.h3`
   overflow: hidden;
   font-size: 12px;
 `;
-
 const Styledp = styled.p`
   font-size: 11px;
 `;
@@ -38,9 +41,9 @@ const Styledbutton = styled.button`
 // }
 
 
-const ScrollItem = ({ itemData, index }) => {
+const ScrollItem = ({ itemData, index, rightButtonIsClicked }) => {
   return (
-    <StyledSpan index={index}>
+    <StyledSpan index={index} rightButtonIsClicked={rightButtonIsClicked}>
       <StyledImg src={itemData.photo} />
       <Styledh3>
         {itemData.name}
