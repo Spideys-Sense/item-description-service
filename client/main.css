@@ -22,6 +22,7 @@
   display: flex;
   justify-content: flex-start;
   background-color: rgb(245, 245, 245);
+  height: 60px;
 }
 
 .descriptionTabClickedTrue .description {
@@ -60,6 +61,19 @@
 
 .descriptionTabClickedTrue .FeedingInstructionsTab:hover {
   background-color: white;
+}
+
+.FeedingInstructionsTabText {
+  margin-top: 3px;
+  font-weight: bold;
+}
+.NutritionalInfoTabText {
+  margin-top: 3px;
+  font-weight: bold;
+}
+.DescriptionTabText {
+  margin-top: 3px;
+  font-weight: bold;
 }
 
 .descriptionTabClickedTrue .DescriptionText .title {
@@ -322,10 +336,11 @@ ul.GATitle {
 .feedingInstructionsClickedTrue .FeedingInstructionsText .title {
   grid-row-start: 2;
   grid-column-start: 1;
-  padding-top: 15px;
+  padding-top: 20px;
   font-size: 25px;
   font-weight: 300;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .feedingInstructionsClickedTrue .FeedingInstructionsText .value {
@@ -354,7 +369,7 @@ thead {
 .feedingInstructionsClickedTrue .transitionInstructionsText {
   grid-row-start: 2;
   grid-column-start: 1;
-  height: 370px;
+  /* height: 200px; */
   line-height: 20px;
 }
 
