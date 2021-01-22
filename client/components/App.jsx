@@ -17,8 +17,6 @@ class App extends React.Component {
       descriptionData: [],
       sideBarData: [],
       scrollData: [],
-      firstScrollPart: [],
-      secondScrollPart: [],
       infoLoaded: false,
       scrollLoaded: false,
       descriptionIsClicked: true,
@@ -67,8 +65,6 @@ class App extends React.Component {
         this.setState({
           scrollLoaded: true,
           scrollData: data,
-          firstScrollPart: data.slice(0, 5),
-          secondScrollPart: data.slice(5),
         });
       });
   }
@@ -98,7 +94,7 @@ class App extends React.Component {
 
   renderView() {
     const {
-      descriptionData, sideBarData, infoLoaded, scrollLoaded, firstScrollPart, scrollData, leftButtonIsClicked, rightButtonIsClicked, secondScrollPart,
+      descriptionData, sideBarData, infoLoaded, scrollLoaded, scrollData, leftButtonIsClicked, rightButtonIsClicked,
       descriptionIsClicked, nutritionalInfoTabClicked, feedingInstructionsClicked,
     } = this.state;
     if (!infoLoaded && !scrollLoaded) {
@@ -122,8 +118,7 @@ class App extends React.Component {
           <div className="nutritionalInfoTabClickedFalse" />
           <div className="feedingInstructionsClickedFalse" />
           <ScrollBox
-            firstScrollPart={firstScrollPart}
-            secondScrollPart={secondScrollPart}
+            scrollData={scrollData}
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
@@ -146,8 +141,7 @@ class App extends React.Component {
           </div>
           <div className="feedingInstructionsClickedFalse" />
           <ScrollBox
-            firstScrollPart={firstScrollPart}
-            secondScrollPart={secondScrollPart}
+            scrollData={scrollData}
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
@@ -168,8 +162,7 @@ class App extends React.Component {
             />
           </div>
           <ScrollBox
-            firstScrollPart={firstScrollPart}
-            secondScrollPart={secondScrollPart}
+            scrollData={scrollData}
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}

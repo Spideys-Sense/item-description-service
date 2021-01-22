@@ -4,10 +4,8 @@ import ScrollItem from './ScrollItem';
 import styled, { keyframes } from 'styled-components';
 
 const example = keyframes`
-  0%   {background-color: red;}
-  25%  {background-color: yellow;}
-  50%  {background-color: blue;}
-  100% {background-color: green;}
+  0%   {transform: translateX(0);}
+  100% {transform: translateX(-100%);}
 `;
 
 const StyledWrapper = styled.span`
@@ -21,7 +19,7 @@ const StyledDiv = styled.div`
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   overflow-x: scroll;
-  animation-name: ${props => !props.rightButtonIsClicked ? example : ''};
+  animation-name: ${props => !props.rightButtonIsClicked ? example : ''} 5s linear infinite;
   `;
 
 const StyledArrows = styled.div`
@@ -47,7 +45,7 @@ const Styledh1 = styled.h1`
 
 
 
-const ScrollBox = ({ firstScrollPart, secondScrollPart, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked}) => {
+const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked}) => {
   return (
     <div>
       <Styledh1>Pet Lovers Also Bought</Styledh1>
@@ -58,7 +56,7 @@ const ScrollBox = ({ firstScrollPart, secondScrollPart, handleButtonClick, right
             <StyledRightButton onClick={handleButtonClick} rightButtonIsClicked={rightButtonIsClicked}>☞</StyledRightButton>
           </StyledArrows>
           <StyledDiv rightButtonIsClicked={rightButtonIsClicked}>
-            {firstScrollPart.map((itemData, index) => {
+            {scrollData.map((itemData, index) => {
               return <ScrollItem itemData={itemData} index={index + 1} />;
             })}
           </StyledDiv>
@@ -70,7 +68,7 @@ const ScrollBox = ({ firstScrollPart, secondScrollPart, handleButtonClick, right
             <StyledRightButton onClick={handleButtonClick} rightButtonIsClicked={rightButtonIsClicked} disabled>☞</StyledRightButton>
           </StyledArrows>
           <StyledDiv rightButtonIsClicked={rightButtonIsClicked}>
-            {secondScrollPart.map((itemData, index) => {
+            {scrollData.map((itemData, index) => {
               return <ScrollItem itemData={itemData} index={index + 1} />;
             })}
           </StyledDiv>
