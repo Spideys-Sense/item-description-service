@@ -46,7 +46,7 @@ const seed = () => {
 
     let objectData = () => (
       {
-        photo: faker.image.imageUrl(125, 80, 'animals', true, true),
+        photo: faker.image.imageUrl(80, 120, 'animals', true, true),
         name: random.randomDetailedTitleFunc(),
         price: faker.commerce.price(3, 30, 2, '$'),
         starRating: faker.random.number({min: 0, max: 5}),

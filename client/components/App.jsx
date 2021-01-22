@@ -7,6 +7,7 @@ import SideBar from './SideBar';
 import NutritionalInfo from './NutritionalInfo';
 import GuaranteedAnalysis from './GuaranteedAnalysis';
 import FeedingInstructions from './FeedingInstructions';
+import ScrollBox from './ScrollBox';
 
 class App extends React.Component {
   constructor() {
@@ -15,14 +16,40 @@ class App extends React.Component {
       id: 1,
       descriptionData: [],
       sideBarData: [],
-      loaded: false,
+      scrollData: [],
+      firstScrollPart: [],
+      secondScrollPart: [],
+      infoLoaded: false,
+      scrollLoaded: false,
       descriptionIsClicked: true,
       nutritionalInfoTabClicked: false,
       feedingInstructionsClicked: false,
+      rightButtonIsClicked: true,
+      leftButtonIsClicked: false,
     };
     this.renderView = this.renderView.bind(this);
     this.tabClicked = this.tabClicked.bind(this);
+    // this.handleButtonRightClick = this.handleButtonRightClick.bind(this);
+    // this.handleButtonLeftClick = this.handleButtonLeftClick.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   }
+
+  handleButtonClick(e) {
+    e.preventDefault();
+    this.setState({
+      leftButtonIsClicked: !this.state.leftButtonIsClicked,
+      rightButtonIsClicked: !this.state.rightButtonIsClicked,
+    });
+  }
+
+  // handleButtonLeftClick(e) {
+  //   e.preventDefault();
+  //   console.log('LEFT CLICKED!');
+  //   this.setState({
+  //     leftButtonIsClicked: true,
+  //     rightButtonIsClicked: false,
+  //   });
+  // }
 
   componentDidMount() {
     const { id } = this.state;
@@ -31,7 +58,17 @@ class App extends React.Component {
         this.setState({
           descriptionData: data[0],
           sideBarData: data[1],
-          loaded: true,
+          infoLoaded: true,
+        });
+      });
+
+    axios.get('/api/scrollboxes')
+      .then(({ data }) => {
+        this.setState({
+          scrollLoaded: true,
+          scrollData: data,
+          firstScrollPart: data.slice(0, 5),
+          secondScrollPart: data.slice(5),
         });
       });
   }
@@ -61,10 +98,10 @@ class App extends React.Component {
 
   renderView() {
     const {
-      descriptionData, sideBarData, loaded,
+      descriptionData, sideBarData, infoLoaded, scrollLoaded, firstScrollPart, scrollData, leftButtonIsClicked, rightButtonIsClicked, secondScrollPart,
       descriptionIsClicked, nutritionalInfoTabClicked, feedingInstructionsClicked,
     } = this.state;
-    if (!loaded) {
+    if (!infoLoaded && !scrollLoaded) {
       return <h1>Loading...</h1>;
     }
     if (descriptionIsClicked) {
@@ -84,6 +121,13 @@ class App extends React.Component {
           </div>
           <div className="nutritionalInfoTabClickedFalse" />
           <div className="feedingInstructionsClickedFalse" />
+          <ScrollBox
+            firstScrollPart={firstScrollPart}
+            secondScrollPart={secondScrollPart}
+            handleButtonClick={this.handleButtonClick}
+            leftButtonIsClicked={leftButtonIsClicked}
+            rightButtonIsClicked={rightButtonIsClicked}
+          />
         </div>
       );
     }
@@ -101,6 +145,13 @@ class App extends React.Component {
             />
           </div>
           <div className="feedingInstructionsClickedFalse" />
+          <ScrollBox
+            firstScrollPart={firstScrollPart}
+            secondScrollPart={secondScrollPart}
+            handleButtonClick={this.handleButtonClick}
+            leftButtonIsClicked={leftButtonIsClicked}
+            rightButtonIsClicked={rightButtonIsClicked}
+          />
         </div>
       );
     }
@@ -116,6 +167,13 @@ class App extends React.Component {
               transitionInstructions={descriptionData}
             />
           </div>
+          <ScrollBox
+            firstScrollPart={firstScrollPart}
+            secondScrollPart={secondScrollPart}
+            handleButtonClick={this.handleButtonClick}
+            leftButtonIsClicked={leftButtonIsClicked}
+            rightButtonIsClicked={rightButtonIsClicked}
+          />
         </div>
       );
     }
