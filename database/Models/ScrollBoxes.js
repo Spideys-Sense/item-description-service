@@ -13,6 +13,9 @@ const ScrollBoxes = db.define('ScrollBox', {
   },
   starRating: {
     type: DataTypes.INTEGER
+  },
+  onSale: {
+    type: DataTypes.TEXT
   }
 });
 

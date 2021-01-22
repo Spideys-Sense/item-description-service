@@ -74,6 +74,24 @@ const randomDetailedTitleFunc = () => {
   return title;
 };
 
+/* CREATING RANDOM COUPON */
+
+const randomCouponArr = [
+  'Spend $50, Get a $15 eGift Card',
+  'Save $10 at Checkout with code: HACKREACTOR',
+  'Spend $50, Save $25 instantly!',
+  '25% Off 1st Order',
+  'Save $15 with Code: JAVASCRIPT',
+  'Save $100 with Code: SPIDEYSSENSE',
+  'Spend $60, Get a $25 eGift Card',
+];
+
+const randomCoupon = () => {
+  if (faker.random.boolean()) {
+    return faker.random.arrayElement(randomCouponArr);
+  }
+};
+
 module.exports = {
   randomWordList,
   randomKeyBenefitsList,
@@ -82,4 +100,5 @@ module.exports = {
   randomFoodFormFunc,
   randomSpecialDietFunc,
   randomDetailedTitleFunc,
+  randomCoupon,
 };
