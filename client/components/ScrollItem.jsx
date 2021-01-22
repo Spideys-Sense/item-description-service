@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
-
-// Styled component named StyledButton
+import Stars from './Stars';
 
 const blur = keyframes`
   0% {filter: blur(0)}
@@ -19,15 +18,20 @@ const StyledSpan = styled.span`
   border: solid 1px #dddddd;
   box-shadow: 0 1px 0 #cccccc;
   grid-column-start: ${props => props.index ? props.index : 'hello'};
-  padding: 16px;
+  padding: 12px 16px;
   margin: 0 16px 2px 0;
   :hover {
     cursor: pointer;
   }
-  transition: transform 0.5s ease-in-out, animation 3s ease-in-out;
-  animation: ${props => !props.rightButtonIsClicked ? css`${blur} 0.5s ease-in-out;` : ''}
+  transition: transform 0.75s ease-in-out, animation 3s ease-in-out;
+  animation: ${props => !props.rightButtonIsClicked ? css`${blur} 0.75s ease-in-out;` : ''}
   transform: ${props => !props.rightButtonIsClicked ? 'translateX(-896px)' : ''}
 `;
+
+// const PriceStarsContainer = styled.div`
+//   width: 10px;
+//   margin-top: 50px;
+// `;
 
 const StyledBrand = styled.span`
   font-weight: bold;
@@ -51,14 +55,16 @@ const Styledh3 = styled.h3`
   max-height: 35px;
   overflow: hidden;
   font-size: 11px;
-  font-weight: normal;
+  font-weight: 300;
   float: left;
 `;
-const Styledp = styled.p`
-  font-size: 12px;
+
+const Styledp = styled.div`
+  font-size: 13px;
   font-weight: bold;
   color: #D0011B;
   float: left;
+  margin: 50px 0 10px 0;
 `;
 
 const Styledbutton = styled.button`
@@ -68,18 +74,27 @@ const Styledbutton = styled.button`
   font-size: 10px;
   font-weight: bold;
   font-family: Roboto, serif;
-  padding: 5px 33px;
   outline: none;
   border: none;
+  padding: 5px 33px;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
-// function Component() {
-//   // Use it like any other component.
-//   return <StyledButton> Login </StyledButton>;
-// }
+const StyledNum = styled.div`
+  color: black;
+  display: inline;
+  float: left;
+  margin: 0px;
+  margin-top: 70px;
+`;
 
+const StyledDiscountBox = styled.div`
+  color: green;
+`;
 
-const ScrollItem = ({ itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand }) => {
+const ScrollItem = ({ itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale }) => {
   return (
     <StyledSpan index={index} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked}>
       <StyledDivImg>
@@ -89,9 +104,14 @@ const ScrollItem = ({ itemData, index, rightButtonIsClicked, leftButtonIsClicked
         <StyledBrand>{brand}</StyledBrand>
         {itemData.name}
       </ Styledh3>
+      <StyledDiscountBox>
+        {itemData.onSale}
+      </StyledDiscountBox>
       <Styledp>
         {itemData.price}
       </Styledp>
+      <Stars starRating={starRating}/>
+      <StyledNum>{Math.floor(Math.random() * 200)}</StyledNum>
       <Styledbutton>
       Add to Cart
       </Styledbutton>
