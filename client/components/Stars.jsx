@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-  color: orange;
+  color: #f89800;
   float: left;
   margin-bottom: 15px;
-  margin-top: 70px;
+  margin-top: 5px;
   display: inline;
 `;
 

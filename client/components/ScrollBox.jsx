@@ -69,7 +69,7 @@ const Styledh1 = styled.h1`
   color: #333333;
 `;
 
-const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked, brand, onSale }) => {
+const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked, brand }) => {
   return (
     <StyledDivBox>
       <Styledh1>Pet Lovers Also Bought</Styledh1>
@@ -81,7 +81,7 @@ const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftBu
           </StyledArrows>
           <StyledDiv rightButtonIsClicked={rightButtonIsClicked}>
             {scrollData.map((itemData, index) => {
-              return <ScrollItem itemData={itemData} index={index + 1} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked} brand={brand} starRating={itemData.starRating}/>;
+              return <ScrollItem itemData={itemData} index={index + 1} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked} brand={brand} starRating={itemData.starRating} onSale={itemData.onSale}/>;
             })}
           </StyledDiv>
         </StyledWrapper>
@@ -93,7 +93,7 @@ const ScrollBox = ({ scrollData, handleButtonClick, rightButtonIsClicked, leftBu
           </StyledArrows>
           <StyledDiv rightButtonIsClicked={rightButtonIsClicked}>
             {scrollData.map((itemData, index) => {
-              return <ScrollItem itemData={itemData} index={index + 1} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked} brand={brand} starRating={itemData.starRating} />;
+              return <ScrollItem itemData={itemData} index={index + 1} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked} brand={brand} starRating={itemData.starRating} onSale={itemData.onSale}/>;
             })}
           </StyledDiv>
         </StyledWrapper>
