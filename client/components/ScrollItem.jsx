@@ -1,8 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 // Styled component named StyledButton
+
+const blur = keyframes`
+  0% {filter: blur(0)}
+  50% {filter: blur(5px)}
+  100% {filter: blur(0)}
+`;
+
+const animation = () =>
+  css`
+    ${blur} 2s ease-in-out;
+  `;
+
 
 const StyledSpan = styled.span`
   grid-column-start: ${props => props.index ? props.index : 'hello'};
@@ -11,10 +23,11 @@ const StyledSpan = styled.span`
   :hover {
     cursor: pointer;
   }
-  transition: ${props => !props.rightButtonIsClicked ? 'transform 5s' : '' }
-  transform: translateX(300px);
-  //ease-in-out 0.5s
+  transition: transform 0.5s ease-in-out, animation 3s ease-in-out;
+  animation: ${props => !props.rightButtonIsClicked ? css`${blur} 0.5s ease-in-out;` : ''}
+  transform: ${props => !props.rightButtonIsClicked ? 'translateX(-896px)' : ''}
 `;
+
 
 const StyledImg = styled.img`
   margin: 0 auto;
@@ -41,9 +54,9 @@ const Styledbutton = styled.button`
 // }
 
 
-const ScrollItem = ({ itemData, index, rightButtonIsClicked }) => {
+const ScrollItem = ({ itemData, index, rightButtonIsClicked, leftButtonIsClicked }) => {
   return (
-    <StyledSpan index={index} rightButtonIsClicked={rightButtonIsClicked}>
+    <StyledSpan index={index} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked}>
       <StyledImg src={itemData.photo} />
       <Styledh3>
         {itemData.name}

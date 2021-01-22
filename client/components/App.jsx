@@ -122,6 +122,7 @@ class App extends React.Component {
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
           />
         </div>
       );
@@ -145,6 +146,7 @@ class App extends React.Component {
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
           />
         </div>
       );
@@ -166,6 +168,7 @@ class App extends React.Component {
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
           />
         </div>
       );
