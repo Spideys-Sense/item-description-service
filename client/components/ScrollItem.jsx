@@ -26,7 +26,8 @@ const StyledSpan = styled.span`
   }
   transition: transform 0.75s ease-in-out, animation 3s ease-in-out;
   animation: ${(props) => (!props.rightButtonIsClicked ? css`${blur} 0.75s ease-in-out;` : '')}
-  transform: ${(props) => (!props.rightButtonIsClicked ? 'translateX(-896px)' : '')}
+  transform: ${(props) => (!props.rightButtonIsClicked ? `translateX(-${props.width}px)` : '')}
+
 `;
 
 const StyledBrand = styled.span`
@@ -115,51 +116,56 @@ const StyledPriceStarsButtons = styled.div`
 `;
 
 const ScrollItem = ({
-  itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale,
-}) => (
-  <StyledSpan
-    index={index}
-    rightButtonIsClicked={rightButtonIsClicked}
-    leftButtonIsClicked={leftButtonIsClicked}
-  >
-    <StyledDivImg>
-      <StyledImg src={itemData.photo} />
-    </StyledDivImg>
-    <Styledh3>
-      <StyledBrand>{brand}</StyledBrand>
-      {itemData.name}
-    </Styledh3>
-    <StyledContainer>
-      {onSale
-        ? (
-          <StyledDiscountBox>
-            {onSale}
-          </StyledDiscountBox>
-        )
-        : <EmptyDiv />}
-      <StyledPriceStarsButtons>
-        <Styledp>
-          {itemData.price}
-        </Styledp>
-        <Stars starRating={starRating} />
-        {starRating > 0
+  itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale, width /*itemCount,*/
+}) => {
+  console.log(width)
+  return (
+    <StyledSpan
+      index={index}
+      rightButtonIsClicked={rightButtonIsClicked}
+      leftButtonIsClicked={leftButtonIsClicked}
+      width={width}
+      //itemCount={itemCount}
+    >
+      <StyledDivImg>
+        <StyledImg src={itemData.photo} />
+      </StyledDivImg>
+      <Styledh3>
+        <StyledBrand>{brand}</StyledBrand>
+        {itemData.name}
+      </Styledh3>
+      <StyledContainer>
+        {onSale
           ? (
-            <StyledNum>
-              {Math.floor(Math.random() * 200)}
-            </StyledNum>
+            <StyledDiscountBox>
+              {onSale}
+            </StyledDiscountBox>
           )
-          : (
-            <StyledNum>
-              0
-            </StyledNum>
-          )}
-        <Styledbutton>
-          Add to Cart
-        </Styledbutton>
-      </StyledPriceStarsButtons>
-    </StyledContainer>
-  </StyledSpan>
-);
+          : <EmptyDiv />}
+        <StyledPriceStarsButtons>
+          <Styledp>
+            {itemData.price}
+          </Styledp>
+          <Stars starRating={starRating} />
+          {starRating > 0
+            ? (
+              <StyledNum>
+                {Math.floor(Math.random() * 200)}
+              </StyledNum>
+            )
+            : (
+              <StyledNum>
+                0
+              </StyledNum>
+            )}
+          <Styledbutton>
+            Add to Cart
+          </Styledbutton>
+        </StyledPriceStarsButtons>
+      </StyledContainer>
+    </StyledSpan>
+  )
+};
 
 ScrollItem.propTypes = {
   itemData: PropTypes.arrayOf.isRequired,

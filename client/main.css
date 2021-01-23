@@ -185,6 +185,7 @@ ul.GATitle {
   color: #555555;
   visibility: visible;
   margin-left: 17px;
+  height: 500px;
 }
 
 .nutritionalInfoTabClickedTrue .DescriptionTab {
@@ -285,7 +286,7 @@ ul.GATitle {
 }
 
 .nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv li .value {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 300;
   color: #555;
 }
@@ -370,6 +371,7 @@ ul.GATitle {
 
 th {
   padding: 0 20px;
+  font-weight: 500;
 }
 
 td {
@@ -439,7 +441,7 @@ thead {
 }
 
 .feedingInstructionsClickedTrue .SideBar li .value {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
   color: #555;
 }

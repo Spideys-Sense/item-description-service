@@ -30,14 +30,6 @@ class App extends React.Component {
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
-  handleButtonClick(e) {
-    e.preventDefault();
-    this.setState({
-      leftButtonIsClicked: !this.state.leftButtonIsClicked,
-      rightButtonIsClicked: !this.state.rightButtonIsClicked,
-    });
-  }
-
   componentDidMount() {
     const { id } = this.state;
     axios.get(`/api/${id}/information`)
@@ -56,6 +48,15 @@ class App extends React.Component {
           scrollData: data,
         });
       });
+  }
+
+  handleButtonClick(e) {
+    const { leftButtonIsClicked, rightButtonIsClicked } = this.state;
+    e.preventDefault();
+    this.setState({
+      leftButtonIsClicked: !leftButtonIsClicked,
+      rightButtonIsClicked: !rightButtonIsClicked,
+    });
   }
 
   tabClicked(e) {
@@ -83,8 +84,9 @@ class App extends React.Component {
 
   renderView() {
     const {
-      descriptionData, sideBarData, infoLoaded, scrollLoaded, scrollData, leftButtonIsClicked, rightButtonIsClicked,
-      descriptionIsClicked, nutritionalInfoTabClicked, feedingInstructionsClicked,
+      descriptionData, sideBarData, infoLoaded, scrollLoaded, scrollData, leftButtonIsClicked,
+      rightButtonIsClicked, descriptionIsClicked, nutritionalInfoTabClicked,
+      feedingInstructionsClicked,
     } = this.state;
     if (!infoLoaded && !scrollLoaded) {
       return <h1>Loading...</h1>;
@@ -111,7 +113,6 @@ class App extends React.Component {
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
-            leftButtonIsClicked={leftButtonIsClicked}
             brand={sideBarData[0].brand}
           />
         </div>
@@ -126,9 +127,7 @@ class App extends React.Component {
             <NutritionalInfo
               description={descriptionData}
             />
-            <GuaranteedAnalysis
-              guaranteedAnalysis={sideBarData}
-            />
+            <GuaranteedAnalysis />
           </div>
           <div className="feedingInstructionsClickedFalse" />
           <ScrollBox
@@ -136,7 +135,6 @@ class App extends React.Component {
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
-            leftButtonIsClicked={leftButtonIsClicked}
             brand={sideBarData[0].brand}
           />
         </div>
@@ -159,7 +157,6 @@ class App extends React.Component {
             handleButtonClick={this.handleButtonClick}
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
-            leftButtonIsClicked={leftButtonIsClicked}
             brand={sideBarData[0].brand}
           />
         </div>
