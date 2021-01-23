@@ -8,6 +8,8 @@
   color: #555555;
   visibility: visible;
   margin-left: 17px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .descriptionTabClickedFalse {
@@ -186,6 +188,8 @@ ul.GATitle {
   visibility: visible;
   margin-left: 17px;
   height: 500px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .nutritionalInfoTabClickedTrue .DescriptionTab {
@@ -301,6 +305,8 @@ ul.GATitle {
   color: #555555;
   visibility: visible;
   margin-left: 17px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .feedingInstructionsClickedFalse {

@@ -24,6 +24,8 @@ class App extends React.Component {
       feedingInstructionsClicked: false,
       rightButtonIsClicked: true,
       leftButtonIsClicked: false,
+      currentListOfIds: [],
+      endOfList: false,
     };
     this.renderView = this.renderView.bind(this);
     this.tabClicked = this.tabClicked.bind(this);

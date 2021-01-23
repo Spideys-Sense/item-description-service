@@ -14,7 +14,9 @@ class ScrollBoxDiv extends React.Component {
   }
 
   widthFunc() {
-    return this.myRef.current.clientWidth;
+    console.log(this.myRef.current.scrollWidth - this.myRef.current.clientWidth)
+    // return this.myRef.current.clientWidth;
+    return this.myRef.current.scrollWidth - this.myRef.current.clientWidth;
   }
 
   render() {
@@ -48,6 +50,8 @@ const StyledDiv = styled.div`
   grid-template-columns: (10, 10%);
   padding: 20px 0;
   overflow-x: hidden;
+  max-width: 1000px;
+  margin: auto;
   `;
 
 export default ScrollBoxDiv;

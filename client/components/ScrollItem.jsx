@@ -26,8 +26,12 @@ const StyledSpan = styled.span`
   }
   transition: transform 0.75s ease-in-out, animation 3s ease-in-out;
   animation: ${(props) => (!props.rightButtonIsClicked ? css`${blur} 0.75s ease-in-out;` : '')}
-  transform: ${(props) => (!props.rightButtonIsClicked ? `translateX(-${props.width}px)` : '')}
-
+  transform: ${(props) => (props.width === 564 ? 'translateX(-570px)' : `translateX(-${props.width}px)`)}
+  //1246 / 4 (8 on screen)
+  //622 - 622 (4 on screen)
+  //293 - 293
+  //should be props.width WITH  OR UNTIL
+  //max-width: 800px
 `;
 
 const StyledBrand = styled.span`
@@ -118,7 +122,7 @@ const StyledPriceStarsButtons = styled.div`
 const ScrollItem = ({
   itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale, width /*itemCount,*/
 }) => {
-  console.log(width)
+  // console.log(width)
   return (
     <StyledSpan
       index={index}

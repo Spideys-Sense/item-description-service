@@ -16,6 +16,7 @@ const StyledDivBox = styled.div`
   padding: 28px 10px;
   border-top: 2px solid rgb(224, 224, 224);
   background-color: rgb(242, 242, 242);
+  margin: auto;
   `;
 
 const StyledArrows = styled.div`
