@@ -12,7 +12,7 @@ const StyledWrapper = styled.span`
 `;
 
 const StyledDivBox = styled.div`
-  padding: 10px;
+  padding: 28px 10px;
   border-top: 2px solid rgb(224, 224, 224);
   background-color: rgb(242, 242, 242);
   `;
@@ -35,10 +35,12 @@ const StyledLeftButton = styled.button`
   padding-left: 7px;
   border-style: solid;
   background: transparent;
+  transition: background-color ease-out 0.25s, color ease-out 0.25s;
   border-color: ${props => props.leftButtonIsClicked ? 'rgb(14, 112, 190);' : 'black'}
   color: ${props => props.leftButtonIsClicked ? '#0E70BE' : 'black'};
   opacity: ${props => props.leftButtonIsClicked ? '' : '0.5'};
   :hover {
+    transition: background-color ease-in 0.25s, color ease-in 0.25s;
     cursor: ${props => props.leftButtonIsClicked ? 'pointer' : ''};
     color: ${props => props.leftButtonIsClicked ? 'white' : ''};
     background-color: ${props => props.leftButtonIsClicked ? '#0E70BE' : ''};
@@ -51,10 +53,12 @@ const StyledRightButton = styled.button`
   padding-left: 7px;
   border-style: solid;
   background: transparent;
+  transition: background-color ease-out 0.25s, color ease-out 0.25s;
   border-color: ${props => props.rightButtonIsClicked ? 'rgb(14, 112, 190);' : 'black'}
   color: ${props => props.rightButtonIsClicked ? '#0E70BE' : 'black'};
   opacity: ${props => props.rightButtonIsClicked ? '' : '0.5'};
   :hover {
+    transition: background-color ease-in 0.25s, color ease-in 0.25s;
     cursor: ${props => props.rightButtonIsClicked ? 'pointer' : ''};
     color: ${props => props.rightButtonIsClicked ? 'white' : ''};
     background-color: ${props => props.rightButtonIsClicked ? '#0E70BE' : ''};
@@ -64,8 +68,8 @@ const StyledRightButton = styled.button`
 const Styledh1 = styled.h1`
   display: inline;
   font-family: Roboto, serif;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 300;
   color: #333333;
 `;
 

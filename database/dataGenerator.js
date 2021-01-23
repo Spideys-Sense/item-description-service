@@ -78,9 +78,8 @@ const randomDetailedTitleFunc = () => {
 
 const randomCouponArr = [
   'Spend $50, Get a $15 eGift Card',
-  'Save $10 at Checkout with code: HACKREACTOR',
+  'Save $15 with Code: HACKREACTOR',
   'Spend $50, Save $25 instantly!',
-  '25% Off 1st Order',
   'Save $15 with Code: JAVASCRIPT',
   'Save $100 with Code: SPIDEYSSENSE',
   'Spend $60, Get a $25 eGift Card',

@@ -27,8 +27,6 @@ class App extends React.Component {
     };
     this.renderView = this.renderView.bind(this);
     this.tabClicked = this.tabClicked.bind(this);
-    // this.handleButtonRightClick = this.handleButtonRightClick.bind(this);
-    // this.handleButtonLeftClick = this.handleButtonLeftClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
@@ -39,15 +37,6 @@ class App extends React.Component {
       rightButtonIsClicked: !this.state.rightButtonIsClicked,
     });
   }
-
-  // handleButtonLeftClick(e) {
-  //   e.preventDefault();
-  //   console.log('LEFT CLICKED!');
-  //   this.setState({
-  //     leftButtonIsClicked: true,
-  //     rightButtonIsClicked: false,
-  //   });
-  // }
 
   componentDidMount() {
     const { id } = this.state;

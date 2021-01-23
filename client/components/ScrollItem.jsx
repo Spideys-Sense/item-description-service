@@ -12,13 +12,14 @@ const blur = keyframes`
 const StyledSpan = styled.span`
   font-family: Roboto, serif;
   color: #333333;
+  background-color: white;
   font-size: 10px;
-  width: 140px;
+  width: 120px;
   border-radius: 5px;
   border: solid 1px #dddddd;
   box-shadow: 0 1px 0 #cccccc;
   grid-column-start: ${props => props.index ? props.index : 'hello'};
-  padding: 8px 5px;
+  padding: 5px 10px;
   margin: 0 16px 2px 0;
   :hover {
     cursor: pointer;
@@ -89,14 +90,16 @@ const StyledNum = styled.div`
 
 const StyledDiscountBox = styled.div`
   background-color: #327435;
-  height: 35px;
+  height: 30px;
+  width: 110px;
   border-color: #327435;
   color: white;
   border-radius: 3px;
+  margin: 0 auto;
   margin-top: 45px;
-  padding: 5px;
-  font-size: 11px;
-  font-weight: bold;
+  padding: 5px 5px 0 5px;
+  font-size: 10px;
+  font-weight: 400;
 `;
 
 const StyledContainer = styled.div`
@@ -104,7 +107,7 @@ const StyledContainer = styled.div`
 `;
 
 const EmptyDiv = styled.div`
-  height: 70px;
+  height: 60px;
   position: relative;
 `;
 
