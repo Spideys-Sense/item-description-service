@@ -66,10 +66,10 @@ const randomSpecialDietFunc = () => {
 
 /* CREATING RANDOM DETAILED TITLE */
 const randomDetailedTitleFunc = () => {
-  title = '';
+  let title = '';
   for (let k = 0; k < 10; k += 1) {
-    let randomWord = faker.random.arrayElement(chewyWordsArr);
-    title += ' ' + randomWord;
+    const randomWord = faker.random.arrayElement(chewyWordsArr);
+    title += ` ${randomWord}`;
   }
   return title;
 };
@@ -86,9 +86,11 @@ const randomCouponArr = [
 ];
 
 const randomCoupon = () => {
+  let coupon;
   if (faker.random.boolean()) {
-    return faker.random.arrayElement(randomCouponArr);
+    coupon = faker.random.arrayElement(randomCouponArr);
   }
+  return coupon;
 };
 
 module.exports = {

@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
+import PropTypes from 'prop-types';
 import Stars from './Stars';
 
 const blur = keyframes`
@@ -18,15 +18,15 @@ const StyledSpan = styled.span`
   border-radius: 5px;
   border: solid 1px #dddddd;
   box-shadow: 0 1px 0 #cccccc;
-  grid-column-start: ${props => props.index ? props.index : 'hello'};
+  grid-column-start: ${(props) => (props.index ? props.index : 'hello')};
   padding: 5px 10px;
   margin: 0 16px 2px 0;
   :hover {
     cursor: pointer;
   }
   transition: transform 0.75s ease-in-out, animation 3s ease-in-out;
-  animation: ${props => !props.rightButtonIsClicked ? css`${blur} 0.75s ease-in-out;` : ''}
-  transform: ${props => !props.rightButtonIsClicked ? 'translateX(-896px)' : ''}
+  animation: ${(props) => (!props.rightButtonIsClicked ? css`${blur} 0.75s ease-in-out;` : '')}
+  transform: ${(props) => (!props.rightButtonIsClicked ? 'translateX(-896px)' : '')}
 `;
 
 const StyledBrand = styled.span`
@@ -114,46 +114,61 @@ const EmptyDiv = styled.div`
 const StyledPriceStarsButtons = styled.div`
 `;
 
-const ScrollItem = ({ itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale }) => {
-  return (
-    <StyledSpan index={index} rightButtonIsClicked={rightButtonIsClicked} leftButtonIsClicked={leftButtonIsClicked}>
-      <StyledDivImg>
-        <StyledImg src={itemData.photo} />
-      </StyledDivImg>
-      <Styledh3>
-        <StyledBrand>{brand}</StyledBrand>
-        {itemData.name}
-      </ Styledh3>
-      <StyledContainer>
-        {onSale ?
+const ScrollItem = ({
+  itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale,
+}) => (
+  <StyledSpan
+    index={index}
+    rightButtonIsClicked={rightButtonIsClicked}
+    leftButtonIsClicked={leftButtonIsClicked}
+  >
+    <StyledDivImg>
+      <StyledImg src={itemData.photo} />
+    </StyledDivImg>
+    <Styledh3>
+      <StyledBrand>{brand}</StyledBrand>
+      {itemData.name}
+    </Styledh3>
+    <StyledContainer>
+      {onSale
+        ? (
           <StyledDiscountBox>
             {onSale}
           </StyledDiscountBox>
-          :
-          <EmptyDiv></EmptyDiv>
-        }
-        <StyledPriceStarsButtons>
-          <Styledp>
-            {itemData.price}
-          </Styledp>
-          <Stars starRating={starRating}/>
-          {starRating > 0 ?
+        )
+        : <EmptyDiv />}
+      <StyledPriceStarsButtons>
+        <Styledp>
+          {itemData.price}
+        </Styledp>
+        <Stars starRating={starRating} />
+        {starRating > 0
+          ? (
             <StyledNum>
               {Math.floor(Math.random() * 200)}
             </StyledNum>
-            :
+          )
+          : (
             <StyledNum>
-            0
+              0
             </StyledNum>
-          }
-          <Styledbutton>
+          )}
+        <Styledbutton>
           Add to Cart
-          </Styledbutton>
-        </StyledPriceStarsButtons>
-      </StyledContainer>
-    </StyledSpan>
-  );
-};
+        </Styledbutton>
+      </StyledPriceStarsButtons>
+    </StyledContainer>
+  </StyledSpan>
+);
 
+ScrollItem.propTypes = {
+  itemData: PropTypes.arrayOf.isRequired,
+  index: PropTypes.number.isRequired,
+  rightButtonIsClicked: PropTypes.bool.isRequired,
+  leftButtonIsClicked: PropTypes.bool.isRequired,
+  brand: PropTypes.string.isRequired,
+  starRating: PropTypes.number.isRequired,
+  onSale: PropTypes.string.isRequired,
+};
 
 export default ScrollItem;

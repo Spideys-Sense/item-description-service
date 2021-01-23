@@ -43,31 +43,30 @@ const seed = () => {
   itemDataTableFillerData();
 
   const createLinkedList = () => {
-
-    let objectData = () => (
+    const objectData = () => (
       {
         photo: faker.image.imageUrl(80, 120, 'animals', true, true),
         name: random.randomDetailedTitleFunc(),
         price: faker.commerce.price(3, 30, 2, '$'),
-        starRating: faker.random.number({min: 0, max: 5}),
+        starRating: faker.random.number({ min: 0, max: 5 }),
         onSale: random.randomCoupon(),
       }
     );
 
-    let Node = function (value) {
-      let node = {};
+    const Node = (value) => {
+      const node = {};
       node.value = value;
       node.next = null;
       return node;
     };
 
-    let linkedList = () => {
-      let list = {};
+    const linkedList = () => {
+      const list = {};
       list.head = null;
       list.tail = null;
 
-      list.add = function(value) {
-        let newNode = Node(value);
+      list.add = (value) => {
+        const newNode = Node(value);
         if (!list.head) {
           list.head = newNode;
         }
@@ -79,9 +78,9 @@ const seed = () => {
       return list;
     };
 
-    let linkedListInstance = linkedList();
+    const linkedListInstance = linkedList();
     for (let k = 0; k < 10; k += 1) {
-      let currentObjectData = objectData();
+      const currentObjectData = objectData();
       linkedListInstance.add(currentObjectData);
       ScrollBoxes.create(currentObjectData);
     }
