@@ -5,9 +5,13 @@ import Stars from './Stars';
 
 const blur = keyframes`
   0% {filter: blur(0)}
-  50% {filter: blur(5px)}
+  25% {filter: blur(4px)}
+  50% {filter: blur(4px)}
+  75% {filter: blur(4px)}
+  90% {filter: blur(4px)}
   100% {filter: blur(0)}
 `;
+
 
 const StyledSpan = styled.span`
   font-family: Roboto, serif;
@@ -18,20 +22,19 @@ const StyledSpan = styled.span`
   border-radius: 5px;
   border: solid 1px #dddddd;
   box-shadow: 0 1px 0 #cccccc;
-  grid-column-start: ${(props) => (props.index ? props.index : 'hello')};
+  grid-column-start: ${(props) => (props.index ? props.index : '')};
   padding: 5px 10px;
   margin: 0 16px 2px 0;
   :hover {
     cursor: pointer;
   }
-  transition: transform 0.75s ease-in-out, animation 3s ease-in-out;
-  animation: ${(props) => (!props.rightButtonIsClicked ? css`${blur} 0.75s ease-in-out;` : '')}
-  transform: ${(props) => (props.width === 564 ? 'translateX(-570px)' : `translateX(-${props.width}px)`)}
-  //1246 / 4 (8 on screen)
-  //622 - 622 (4 on screen)
-  //293 - 293
-  //should be props.width WITH  OR UNTIL
-  //max-width: 800px
+  transition: transform 0.4s cubic-bezier(0.39, 0.1, 0.43, 0.96), animation 1s ease-in-out;
+  //rightButtonIsClicked: false,
+  //leftButtonIsClicked: false,
+  animation: ${(props) => (props.buttonClicked ? css`${blur} 0.5s ease-in-out;` : '')};
+  transform: ${(props) => (props.width === 564 ? 'translateX(-570px)' : `translateX(-${props.width}px)`)};
+
+
 `;
 
 const StyledBrand = styled.span`
@@ -120,17 +123,17 @@ const StyledPriceStarsButtons = styled.div`
 `;
 
 const ScrollItem = ({
-  itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale, width /*itemCount,*/
+  itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale, width, buttonClicked, /*itemCount,*/
 }) => {
-  // console.log(width)
   return (
     <StyledSpan
       index={index}
       rightButtonIsClicked={rightButtonIsClicked}
       leftButtonIsClicked={leftButtonIsClicked}
       width={width}
-      //itemCount={itemCount}
+      buttonClicked={buttonClicked}
     >
+
       <StyledDivImg>
         <StyledImg src={itemData.photo} />
       </StyledDivImg>

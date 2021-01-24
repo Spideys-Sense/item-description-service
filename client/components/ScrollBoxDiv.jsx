@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import ScrollItem from './ScrollItem';
 
 class ScrollBoxDiv extends React.Component {
@@ -14,19 +14,17 @@ class ScrollBoxDiv extends React.Component {
   }
 
   widthFunc() {
-    console.log(this.myRef.current.scrollWidth - this.myRef.current.clientWidth)
+    // console.log(this.myRef.current.scrollWidth - this.myRef.current.clientWidth)
     // return this.myRef.current.clientWidth;
     return this.myRef.current.scrollWidth - this.myRef.current.clientWidth;
   }
 
   render() {
-    let width;
-    // if(this.myRef.current) {
-    //   width = this.myRef.current.scrollWidth; //886
-    // }
-    // console.log(width)
     return (
-      <StyledDiv ref={this.myRef} >
+      <StyledDiv ref={this.myRef}
+        rightButtonIsClicked={this.props.rightButtonIsClicked}
+        leftButtonIsClicked={this.props.leftButtonIsClicked}
+        >
         {/* {this.widthFunc()} */}
         {this.props.scrollData.map((itemData, index) => (
           <ScrollItem
@@ -38,12 +36,22 @@ class ScrollBoxDiv extends React.Component {
             starRating={itemData.starRating}
             onSale={itemData.onSale}
             width={this.widthFunc()}
+            buttonClicked={this.props.buttonClicked}
           />
         ))}
-      </StyledDiv>
+    </StyledDiv>
     );
   }
 }
+
+const blur = keyframes`
+  0% {filter: blur(0)}
+  25% {filter: blur(4px)}
+  50% {filter: blur(4px)}
+  75% {filter: blur(4px)}
+  90% {filter: blur(4px)}
+  100% {filter: blur(0)}
+`;
 
 const StyledDiv = styled.div`
   display: grid;
@@ -52,6 +60,8 @@ const StyledDiv = styled.div`
   overflow-x: hidden;
   max-width: 1000px;
   margin: auto;
+  transition: animation 0.6s ease-in-out;
+  animation: ${(props) => (props.rightButtonIsClicked ? css`${blur} 0.6s ease-in-out;` : '')};
   `;
 
 export default ScrollBoxDiv;

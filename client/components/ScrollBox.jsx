@@ -49,14 +49,14 @@ const StyledRightButton = styled.button`
   border-style: solid;
   background: transparent;
   transition: background-color ease-out 0.25s, color ease-out 0.25s;
-  border-color: ${(props) => (props.rightButtonIsClicked ? 'rgb(14, 112, 190);' : 'black')}
-  color: ${(props) => (props.rightButtonIsClicked ? '#0E70BE' : 'black')};
-  opacity: ${(props) => (props.rightButtonIsClicked ? '' : '0.5')};
+  border-color: ${(props) => ((props.rightButtonIsClicked === props.leftButtonIsClicked) || (props.rightButtonIsClicked && !props.leftButtonIsClicked) ? 'rgb(14, 112, 190);' : 'black')}
+  color: ${(props) => ((props.rightButtonIsClicked === props.leftButtonIsClicked) || (props.rightButtonIsClicked && !props.leftButtonIsClicked) ? '#0E70BE' : 'black')};
+  opacity: ${(props) => ((props.rightButtonIsClicked === props.leftButtonIsClicked) || (props.rightButtonIsClicked && !props.leftButtonIsClicked) ? '' : '0.5')};
   :hover {
     transition: background-color ease-in 0.25s, color ease-in 0.25s;
-    cursor: ${(props) => (props.rightButtonIsClicked ? 'pointer' : '')};
-    color: ${(props) => (props.rightButtonIsClicked ? 'white' : '')};
-    background-color: ${(props) => (props.rightButtonIsClicked ? '#0E70BE' : '')};
+    cursor: ${(props) => ((props.rightButtonIsClicked === props.leftButtonIsClicked) || (props.rightButtonIsClicked && !props.leftButtonIsClicked) ? 'pointer' : '')};
+    color: ${(props) => ((props.rightButtonIsClicked === props.leftButtonIsClicked) || (props.rightButtonIsClicked && !props.leftButtonIsClicked) ? 'white' : '')};
+    background-color: ${(props) => ((props.rightButtonIsClicked === props.leftButtonIsClicked) || (props.rightButtonIsClicked && !props.leftButtonIsClicked) ? '#0E70BE' : '')};
   }
 `;
 
@@ -71,23 +71,24 @@ const Styledh1 = styled.h1`
 //itemCount
 
 const ScrollBox = ({
-  scrollData, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked, brand,
+  scrollData, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked, brand, buttonClicked,
 }) => {
   return (
     <StyledDivBox>
       <Styledh1>Pet Lovers Also Bought</Styledh1>
-      {rightButtonIsClicked
+      {!rightButtonIsClicked && !buttonClicked || rightButtonIsClicked
         ? (
           <StyledWrapper>
             <StyledArrows>
               <StyledLeftButton onClick={handleButtonClick} leftButtonIsClicked={leftButtonIsClicked} disabled>{'<'}</StyledLeftButton>
-              <StyledRightButton onClick={handleButtonClick} rightButtonIsClicked={rightButtonIsClicked}>{'>'}</StyledRightButton>
+              <StyledRightButton onClick={handleButtonClick} rightButtonIsClicked={rightButtonIsClicked} buttonClicked={buttonClicked} leftButtonIsClicked={leftButtonIsClicked}>{'>'}</StyledRightButton>
             </StyledArrows>
             <ScrollBoxDiv
               scrollData={scrollData}
               brand={brand}
               rightButtonIsClicked={rightButtonIsClicked}
               leftButtonIsClicked={leftButtonIsClicked}
+              buttonClicked={buttonClicked}
             />
           </StyledWrapper>
         )
@@ -102,6 +103,7 @@ const ScrollBox = ({
               brand={brand}
               rightButtonIsClicked={rightButtonIsClicked}
               leftButtonIsClicked={leftButtonIsClicked}
+              buttonClicked={buttonClicked}
             />
           </StyledWrapper>
         )}

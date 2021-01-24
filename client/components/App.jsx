@@ -22,14 +22,15 @@ class App extends React.Component {
       descriptionIsClicked: true,
       nutritionalInfoTabClicked: false,
       feedingInstructionsClicked: false,
-      rightButtonIsClicked: true,
+      //made false:
+      rightButtonIsClicked: false,
       leftButtonIsClicked: false,
-      currentListOfIds: [],
-      endOfList: false,
+      buttonClicked: false,
     };
     this.renderView = this.renderView.bind(this);
     this.tabClicked = this.tabClicked.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.buttonClick = this.buttonClick.bind(this);
   }
 
   componentDidMount() {
@@ -55,11 +56,29 @@ class App extends React.Component {
   handleButtonClick(e) {
     const { leftButtonIsClicked, rightButtonIsClicked } = this.state;
     e.preventDefault();
+    if (!leftButtonIsClicked && !rightButtonIsClicked) {
+      this.setState({
+        leftButtonIsClicked: true,
+        rightButtonIsClicked: false,
+      });
+    } else {
     this.setState({
       leftButtonIsClicked: !leftButtonIsClicked,
       rightButtonIsClicked: !rightButtonIsClicked,
     });
   }
+  console.log('rigthbuttonclicked:', this.state.rightButtonIsClicked)
+  console.log('leftbuttonclicked:', this.state.leftButtonIsClicked)
+  this.buttonClick();
+  }
+
+  buttonClick() {
+    this.setState({
+      buttonClicked: !this.state.buttonClicked,
+    })
+    console.log('buttonclicked:', this.state.buttonClicked)
+  }
+
 
   tabClicked(e) {
     e.preventDefault();
@@ -87,7 +106,7 @@ class App extends React.Component {
   renderView() {
     const {
       descriptionData, sideBarData, infoLoaded, scrollLoaded, scrollData, leftButtonIsClicked,
-      rightButtonIsClicked, descriptionIsClicked, nutritionalInfoTabClicked,
+      rightButtonIsClicked, descriptionIsClicked, nutritionalInfoTabClicked, buttonClicked,
       feedingInstructionsClicked,
     } = this.state;
     if (!infoLoaded && !scrollLoaded) {
@@ -116,6 +135,7 @@ class App extends React.Component {
             leftButtonIsClicked={leftButtonIsClicked}
             rightButtonIsClicked={rightButtonIsClicked}
             brand={sideBarData[0].brand}
+            buttonClicked={buttonClicked}
           />
         </div>
       );
