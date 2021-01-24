@@ -22,7 +22,6 @@ class App extends React.Component {
       descriptionIsClicked: true,
       nutritionalInfoTabClicked: false,
       feedingInstructionsClicked: false,
-      //made false:
       rightButtonIsClicked: false,
       leftButtonIsClicked: false,
       buttonClicked: false,
@@ -62,23 +61,20 @@ class App extends React.Component {
         rightButtonIsClicked: false,
       });
     } else {
-    this.setState({
-      leftButtonIsClicked: !leftButtonIsClicked,
-      rightButtonIsClicked: !rightButtonIsClicked,
-    });
-  }
-  console.log('rigthbuttonclicked:', this.state.rightButtonIsClicked)
-  console.log('leftbuttonclicked:', this.state.leftButtonIsClicked)
-  this.buttonClick();
+      this.setState({
+        leftButtonIsClicked: !leftButtonIsClicked,
+        rightButtonIsClicked: !rightButtonIsClicked,
+      });
+    }
+    this.buttonClick();
   }
 
   buttonClick() {
+    const { buttonClicked } = this.state;
     this.setState({
-      buttonClicked: !this.state.buttonClicked,
-    })
-    console.log('buttonclicked:', this.state.buttonClicked)
+      buttonClicked: !buttonClicked,
+    });
   }
-
 
   tabClicked(e) {
     e.preventDefault();

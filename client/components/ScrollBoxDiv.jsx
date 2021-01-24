@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
+import PropTypes from 'prop-types';
 import ScrollItem from './ScrollItem';
 
 class ScrollBoxDiv extends React.Component {
@@ -9,37 +10,34 @@ class ScrollBoxDiv extends React.Component {
     this.widthFunc = this.widthFunc.bind(this);
   }
 
-  componentDidMount() {
-    // console.log(this.myRef.current.clientWidth);
-  }
-
   widthFunc() {
-    // console.log(this.myRef.current.scrollWidth - this.myRef.current.clientWidth)
-    // return this.myRef.current.clientWidth;
     return this.myRef.current.scrollWidth - this.myRef.current.clientWidth;
   }
 
   render() {
+    const {
+      rightButtonIsClicked, leftButtonIsClicked, scrollData, brand, buttonClicked,
+    } = this.props;
     return (
-      <StyledDiv ref={this.myRef}
-        rightButtonIsClicked={this.props.rightButtonIsClicked}
-        leftButtonIsClicked={this.props.leftButtonIsClicked}
-        >
-        {/* {this.widthFunc()} */}
-        {this.props.scrollData.map((itemData, index) => (
+      <StyledDiv
+        ref={this.myRef}
+        rightButtonIsClicked={rightButtonIsClicked}
+        leftButtonIsClicked={leftButtonIsClicked}
+      >
+        {scrollData.map((itemData, index) => (
           <ScrollItem
             itemData={itemData}
             index={index + 1}
-            rightButtonIsClicked={this.props.rightButtonIsClicked}
-            leftButtonIsClicked={this.props.leftButtonIsClicked}
-            brand={this.props.brand}
+            rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
+            brand={brand}
             starRating={itemData.starRating}
             onSale={itemData.onSale}
             width={this.widthFunc()}
-            buttonClicked={this.props.buttonClicked}
+            buttonClicked={buttonClicked}
           />
         ))}
-    </StyledDiv>
+      </StyledDiv>
     );
   }
 }
@@ -63,5 +61,13 @@ const StyledDiv = styled.div`
   transition: animation 0.6s ease-in-out;
   animation: ${(props) => (props.rightButtonIsClicked ? css`${blur} 0.6s ease-in-out;` : '')};
   `;
+
+ScrollBoxDiv.propTypes = {
+  rightButtonIsClicked: PropTypes.bool.isRequired,
+  leftButtonIsClicked: PropTypes.bool.isRequired,
+  scrollData: PropTypes.arrayOf.isRequired,
+  brand: PropTypes.string.isRequired,
+  buttonClicked: PropTypes.func.isRequired,
+};
 
 export default ScrollBoxDiv;

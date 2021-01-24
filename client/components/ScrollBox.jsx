@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import ScrollItem from './ScrollItem';
 import ScrollBoxDiv from './ScrollBoxDiv';
-
-// const slide = keyframes`
-//   0%   {transform: translateX(0);}
-//   100% {transform: translateX(-100%);}
-// `;
 
 const StyledWrapper = styled.span`
 `;
@@ -68,48 +62,44 @@ const Styledh1 = styled.h1`
   color: #333333;
 `;
 
-//itemCount
-
 const ScrollBox = ({
   scrollData, handleButtonClick, rightButtonIsClicked, leftButtonIsClicked, brand, buttonClicked,
-}) => {
-  return (
-    <StyledDivBox>
-      <Styledh1>Pet Lovers Also Bought</Styledh1>
-      {!rightButtonIsClicked && !buttonClicked || rightButtonIsClicked
-        ? (
-          <StyledWrapper>
-            <StyledArrows>
-              <StyledLeftButton onClick={handleButtonClick} leftButtonIsClicked={leftButtonIsClicked} disabled>{'<'}</StyledLeftButton>
-              <StyledRightButton onClick={handleButtonClick} rightButtonIsClicked={rightButtonIsClicked} buttonClicked={buttonClicked} leftButtonIsClicked={leftButtonIsClicked}>{'>'}</StyledRightButton>
-            </StyledArrows>
-            <ScrollBoxDiv
-              scrollData={scrollData}
-              brand={brand}
-              rightButtonIsClicked={rightButtonIsClicked}
-              leftButtonIsClicked={leftButtonIsClicked}
-              buttonClicked={buttonClicked}
-            />
-          </StyledWrapper>
-        )
-        : (
-          <StyledWrapper>
-            <StyledArrows>
-              <StyledLeftButton onClick={handleButtonClick} leftButtonIsClicked={leftButtonIsClicked}>{'<'}</StyledLeftButton>
-              <StyledRightButton onClick={handleButtonClick} rightButtonIsClicked={rightButtonIsClicked} disabled>{'>'}</StyledRightButton>
-            </StyledArrows>
-            <ScrollBoxDiv
-              scrollData={scrollData}
-              brand={brand}
-              rightButtonIsClicked={rightButtonIsClicked}
-              leftButtonIsClicked={leftButtonIsClicked}
-              buttonClicked={buttonClicked}
-            />
-          </StyledWrapper>
-        )}
-    </StyledDivBox>
-  );
-};
+}) => (
+  <StyledDivBox>
+    <Styledh1>Pet Lovers Also Bought</Styledh1>
+    {(!rightButtonIsClicked && !buttonClicked) || rightButtonIsClicked
+      ? (
+        <StyledWrapper>
+          <StyledArrows>
+            <StyledLeftButton onClick={handleButtonClick} leftButtonIsClicked={leftButtonIsClicked} disabled>{'<'}</StyledLeftButton>
+            <StyledRightButton onClick={handleButtonClick} rightButtonIsClicked={rightButtonIsClicked} buttonClicked={buttonClicked} leftButtonIsClicked={leftButtonIsClicked}>{'>'}</StyledRightButton>
+          </StyledArrows>
+          <ScrollBoxDiv
+            scrollData={scrollData}
+            brand={brand}
+            rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
+            buttonClicked={buttonClicked}
+          />
+        </StyledWrapper>
+      )
+      : (
+        <StyledWrapper>
+          <StyledArrows>
+            <StyledLeftButton onClick={handleButtonClick} leftButtonIsClicked={leftButtonIsClicked}>{'<'}</StyledLeftButton>
+            <StyledRightButton onClick={handleButtonClick} rightButtonIsClicked={rightButtonIsClicked} disabled>{'>'}</StyledRightButton>
+          </StyledArrows>
+          <ScrollBoxDiv
+            scrollData={scrollData}
+            brand={brand}
+            rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
+            buttonClicked={buttonClicked}
+          />
+        </StyledWrapper>
+      )}
+  </StyledDivBox>
+);
 
 ScrollBox.propTypes = {
   brand: PropTypes.string.isRequired,
@@ -117,6 +107,7 @@ ScrollBox.propTypes = {
   scrollData: PropTypes.arrayOf.isRequired,
   rightButtonIsClicked: PropTypes.bool.isRequired,
   leftButtonIsClicked: PropTypes.bool.isRequired,
+  buttonClicked: PropTypes.func.isRequired,
 };
 
 export default ScrollBox;

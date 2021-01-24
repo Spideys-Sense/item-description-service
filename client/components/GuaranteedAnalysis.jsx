@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const GuaranteedAnalysis = () => {
-  return (
-    <div className="GuaranteedAnalysisDiv">
+const GuaranteedAnalysis = () => (
+  <div className="GuaranteedAnalysisDiv">
     <li className="GuaranteedAnalysisTable">
       <ul className="GATitle">
         <span className="title">Guaranteed Analysis </span>
@@ -38,11 +36,6 @@ const GuaranteedAnalysis = () => {
       </ul>
     </li>
   </div>
-  )
-}
-
-GuaranteedAnalysis.propTypes = {
-  guaranteedAnalysis: PropTypes.arrayOf.isRequired,
-};
+);
 
 export default GuaranteedAnalysis;
