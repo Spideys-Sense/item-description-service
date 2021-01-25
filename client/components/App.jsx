@@ -7,6 +7,7 @@ import SideBar from './SideBar';
 import NutritionalInfo from './NutritionalInfo';
 import GuaranteedAnalysis from './GuaranteedAnalysis';
 import FeedingInstructions from './FeedingInstructions';
+import ScrollBox from './ScrollBox';
 
 class App extends React.Component {
   constructor() {
@@ -15,13 +16,26 @@ class App extends React.Component {
       id: 1,
       descriptionData: [],
       sideBarData: [],
-      loaded: false,
+      scrollData: [],
+      infoLoaded: false,
+      scrollLoaded: false,
       descriptionIsClicked: true,
       nutritionalInfoTabClicked: false,
       feedingInstructionsClicked: false,
+      rightButtonIsClicked: true,
+      leftButtonIsClicked: false,
     };
     this.renderView = this.renderView.bind(this);
     this.tabClicked = this.tabClicked.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  handleButtonClick(e) {
+    e.preventDefault();
+    this.setState({
+      leftButtonIsClicked: !this.state.leftButtonIsClicked,
+      rightButtonIsClicked: !this.state.rightButtonIsClicked,
+    });
   }
 
   componentDidMount() {
@@ -31,7 +45,15 @@ class App extends React.Component {
         this.setState({
           descriptionData: data[0],
           sideBarData: data[1],
-          loaded: true,
+          infoLoaded: true,
+        });
+      });
+
+    axios.get('/api/scrollboxes')
+      .then(({ data }) => {
+        this.setState({
+          scrollLoaded: true,
+          scrollData: data,
         });
       });
   }
@@ -61,10 +83,10 @@ class App extends React.Component {
 
   renderView() {
     const {
-      descriptionData, sideBarData, loaded,
+      descriptionData, sideBarData, infoLoaded, scrollLoaded, scrollData, leftButtonIsClicked, rightButtonIsClicked,
       descriptionIsClicked, nutritionalInfoTabClicked, feedingInstructionsClicked,
     } = this.state;
-    if (!loaded) {
+    if (!infoLoaded && !scrollLoaded) {
       return <h1>Loading...</h1>;
     }
     if (descriptionIsClicked) {
@@ -84,6 +106,14 @@ class App extends React.Component {
           </div>
           <div className="nutritionalInfoTabClickedFalse" />
           <div className="feedingInstructionsClickedFalse" />
+          <ScrollBox
+            scrollData={scrollData}
+            handleButtonClick={this.handleButtonClick}
+            leftButtonIsClicked={leftButtonIsClicked}
+            rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
+            brand={sideBarData[0].brand}
+          />
         </div>
       );
     }
@@ -101,6 +131,14 @@ class App extends React.Component {
             />
           </div>
           <div className="feedingInstructionsClickedFalse" />
+          <ScrollBox
+            scrollData={scrollData}
+            handleButtonClick={this.handleButtonClick}
+            leftButtonIsClicked={leftButtonIsClicked}
+            rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
+            brand={sideBarData[0].brand}
+          />
         </div>
       );
     }
@@ -116,6 +154,14 @@ class App extends React.Component {
               transitionInstructions={descriptionData}
             />
           </div>
+          <ScrollBox
+            scrollData={scrollData}
+            handleButtonClick={this.handleButtonClick}
+            leftButtonIsClicked={leftButtonIsClicked}
+            rightButtonIsClicked={rightButtonIsClicked}
+            leftButtonIsClicked={leftButtonIsClicked}
+            brand={sideBarData[0].brand}
+          />
         </div>
       );
     }

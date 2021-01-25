@@ -2,13 +2,16 @@ const faker = require('faker');
 const random = require('./dataGenerator.js');
 const { Descriptions } = require('./Models/Descriptions.js');
 const { ItemDataTables } = require('./Models/ItemDataTables.js');
+const { ScrollBoxes } = require('./Models/ScrollBoxes.js');
 
 const seed = () => {
   Descriptions.destroy({ truncate: true });
   ItemDataTables.destroy({ truncate: true });
+  ScrollBoxes.destroy({ truncate: true });
 
   const descriptionArr = [];
   const itemTablesArr = [];
+  const suggestedItems = [];
 
   const descriptionFillerData = () => {
     for (let i = 0; i < 100; i += 1) {
@@ -39,12 +42,55 @@ const seed = () => {
 
   itemDataTableFillerData();
 
+  const createLinkedList = () => {
+    const objectData = () => (
+      {
+        photo: faker.image.imageUrl(80, 120, 'animals', true, true),
+        name: random.randomDetailedTitleFunc(),
+        price: faker.commerce.price(3, 30, 2, '$'),
+        starRating: faker.random.number({ min: 0, max: 5 }),
+        onSale: random.randomCoupon(),
+      }
+    );
+
+    const Node = (value) => {
+      const node = {};
+      node.value = value;
+      node.next = null;
+      return node;
+    };
+
+    const linkedList = () => {
+      const list = {};
+      list.head = null;
+      list.tail = null;
+
+      list.add = (value) => {
+        const newNode = Node(value);
+        if (!list.head) {
+          list.head = newNode;
+        }
+        if (list.tail) {
+          list.tail.next = newNode;
+        }
+        list.tail = newNode;
+      };
+      return list;
+    };
+
+    const linkedListInstance = linkedList();
+    for (let k = 0; k < 10; k += 1) {
+      const currentObjectData = objectData();
+      linkedListInstance.add(currentObjectData);
+      ScrollBoxes.create(currentObjectData);
+    }
+    // suggestedItems.push(linkedListInstance);
+  };
+  createLinkedList();
+
   Descriptions.bulkCreate(descriptionArr);
   ItemDataTables.bulkCreate(itemTablesArr);
+  ScrollBoxes.bulkCreate(suggestedItems);
 };
 
 seed();
-
-module.exports = {
-  seed,
-};
