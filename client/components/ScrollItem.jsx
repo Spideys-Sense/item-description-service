@@ -29,7 +29,7 @@ const StyledSpan = styled.span`
   }
   transition: transform 0.5s cubic-bezier(0.39, 0.1, 0.43, 0.96), animation 1s ease-in-out;
   animation: ${(props) => (props.buttonClicked ? css`${blur} 0.6s ease-in-out;` : '')};
-  transform: ${(props) => (props.buttonClicked ? 'translateX(-570px)' : '')};
+  transform: ${(props) => (props.buttonClicked ? `translateX(-${props.width}px)` : '')};
 `;
 
 const StyledBrand = styled.span`
