@@ -6,8 +6,6 @@ import Stars from './Stars';
 const blur = keyframes`
   0% {filter: blur(0)}
   25% {filter: blur(4px)}
-  50% {filter: blur(4px)}
-  75% {filter: blur(4px)}
   90% {filter: blur(4px)}
   100% {filter: blur(0)}
 `;

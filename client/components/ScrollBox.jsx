@@ -7,6 +7,8 @@ const StyledWrapper = styled.span`
 `;
 
 const StyledDivBox = styled.div`
+  position: relative;
+  top: 650px;
   padding: 28px 10px;
   border-top: 2px solid rgb(224, 224, 224);
   background-color: rgb(242, 242, 242);
@@ -25,15 +27,26 @@ const StyledLeftButton = styled.button`
   border-style: solid;
   background: transparent;
   transition: background-color ease-out 0.25s, color ease-out 0.25s;
-  border-color: ${(props) => (props.leftButtonIsClicked ? 'rgb(14, 112, 190);' : 'black')}
+  /* border-color: ${(props) => (props.leftButtonIsClicked ? 'rgb(14, 112, 190);' : 'black')}
   color: ${(props) => (props.leftButtonIsClicked ? '#0E70BE' : 'black')};
-  opacity: ${(props) => (props.leftButtonIsClicked ? '' : '0.5')};
+  opacity: ${(props) => (props.leftButtonIsClicked ? '' : '0.5')}; */
+  ${(props) => (
+    (props.leftButtonIsClicked)
+      ? `border-color: 'rgb(14, 112, 190)';
+  color: '#0E70BE';
+  opacity: '';`
+      : `border-color: 'black';
+  color: 'black';
+  opacity: '0.5';`
+  )}
   :hover {
     transition: background-color ease-in 0.25s, color ease-in 0.25s;
     cursor: ${(props) => (props.leftButtonIsClicked ? 'pointer' : '')};
     color: ${(props) => (props.leftButtonIsClicked ? 'white' : '')};
     background-color: ${(props) => (props.leftButtonIsClicked ? '#0E70BE' : '')};
   }
+
+
 `;
 
 const StyledRightButton = styled.button`
