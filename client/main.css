@@ -1,6 +1,8 @@
 /* Begin Description Tab CSS */
 
 .descriptionTabClickedTrue {
+  position: relative;
+  top: 650px;
   display: grid;
   grid-template-rows: 10% 85% 5%;
   grid-template-columns: 60% 40%;
@@ -8,6 +10,8 @@
   color: #555555;
   visibility: visible;
   margin-left: 17px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .descriptionTabClickedFalse {
@@ -178,6 +182,8 @@ ul.GATitle {
 /* Begin Nutritional Tab CSS */
 
 .nutritionalInfoTabClickedTrue {
+  position: relative;
+  top: 650px;
   display: grid;
   grid-template-rows: 17% 73%;
   grid-template-columns: 60% 40%;
@@ -185,6 +191,9 @@ ul.GATitle {
   color: #555555;
   visibility: visible;
   margin-left: 17px;
+  height: 500px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .nutritionalInfoTabClickedTrue .DescriptionTab {
@@ -285,7 +294,7 @@ ul.GATitle {
 }
 
 .nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv li .value {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 300;
   color: #555;
 }
@@ -293,6 +302,8 @@ ul.GATitle {
 /* Begin Feeding Instructions Tab CSS */
 
 .feedingInstructionsClickedTrue {
+  position: relative;
+  top: 650px;
   display: grid;
   grid-template-rows: 9% 91%;
   grid-template-columns: 60% 40%;
@@ -300,6 +311,8 @@ ul.GATitle {
   color: #555555;
   visibility: visible;
   margin-left: 17px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .feedingInstructionsClickedFalse {
@@ -370,6 +383,7 @@ ul.GATitle {
 
 th {
   padding: 0 20px;
+  font-weight: 500;
 }
 
 td {
@@ -439,7 +453,7 @@ thead {
 }
 
 .feedingInstructionsClickedTrue .SideBar li .value {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
   color: #555;
 }

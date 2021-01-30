@@ -5,7 +5,8 @@ import Stars from './Stars';
 
 const blur = keyframes`
   0% {filter: blur(0)}
-  50% {filter: blur(5px)}
+  25% {filter: blur(4px)}
+  90% {filter: blur(4px)}
   100% {filter: blur(0)}
 `;
 
@@ -18,15 +19,15 @@ const StyledSpan = styled.span`
   border-radius: 5px;
   border: solid 1px #dddddd;
   box-shadow: 0 1px 0 #cccccc;
-  grid-column-start: ${(props) => (props.index ? props.index : 'hello')};
+  grid-column-start: ${(props) => (props.index ? props.index : '')};
   padding: 5px 10px;
   margin: 0 16px 2px 0;
   :hover {
     cursor: pointer;
   }
-  transition: transform 0.75s ease-in-out, animation 3s ease-in-out;
-  animation: ${(props) => (!props.rightButtonIsClicked ? css`${blur} 0.75s ease-in-out;` : '')}
-  transform: ${(props) => (!props.rightButtonIsClicked ? 'translateX(-896px)' : '')}
+  transition: transform 0.5s cubic-bezier(0.39, 0.1, 0.43, 0.96), animation 1s ease-in-out;
+  animation: ${(props) => (props.buttonClicked ? css`${blur} 0.6s ease-in-out;` : '')};
+  transform: ${(props) => (props.buttonClicked ? `translateX(-${props.width}px)` : '')};
 `;
 
 const StyledBrand = styled.span`
@@ -59,7 +60,6 @@ const Styledp = styled.div`
   font-size: 13px;
   font-weight: bold;
   color: #D0011B;
-  // margin: 50px 0 10px 0;
   margin-top: 10px;
 `;
 
@@ -111,17 +111,18 @@ const EmptyDiv = styled.div`
   position: relative;
 `;
 
-const StyledPriceStarsButtons = styled.div`
-`;
-
 const ScrollItem = ({
-  itemData, index, rightButtonIsClicked, leftButtonIsClicked, brand, starRating, onSale,
+  itemData, index, rightButtonIsClicked, leftButtonIsClicked,
+  brand, starRating, onSale, width, buttonClicked,
 }) => (
   <StyledSpan
     index={index}
     rightButtonIsClicked={rightButtonIsClicked}
     leftButtonIsClicked={leftButtonIsClicked}
+    width={width}
+    buttonClicked={buttonClicked}
   >
+
     <StyledDivImg>
       <StyledImg src={itemData.photo} />
     </StyledDivImg>
@@ -137,26 +138,24 @@ const ScrollItem = ({
           </StyledDiscountBox>
         )
         : <EmptyDiv />}
-      <StyledPriceStarsButtons>
-        <Styledp>
-          {itemData.price}
-        </Styledp>
-        <Stars starRating={starRating} />
-        {starRating > 0
-          ? (
-            <StyledNum>
-              {Math.floor(Math.random() * 200)}
-            </StyledNum>
-          )
-          : (
-            <StyledNum>
-              0
-            </StyledNum>
-          )}
-        <Styledbutton>
-          Add to Cart
-        </Styledbutton>
-      </StyledPriceStarsButtons>
+      <Styledp>
+        {itemData.price}
+      </Styledp>
+      <Stars starRating={starRating} />
+      {starRating > 0
+        ? (
+          <StyledNum>
+            {Math.floor(Math.random() * 200)}
+          </StyledNum>
+        )
+        : (
+          <StyledNum>
+            0
+          </StyledNum>
+        )}
+      <Styledbutton>
+        Add to Cart
+      </Styledbutton>
     </StyledContainer>
   </StyledSpan>
 );
@@ -169,6 +168,8 @@ ScrollItem.propTypes = {
   brand: PropTypes.string.isRequired,
   starRating: PropTypes.number.isRequired,
   onSale: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
+  buttonClicked: PropTypes.func.isRequired,
 };
 
 export default ScrollItem;

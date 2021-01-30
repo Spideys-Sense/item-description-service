@@ -12,19 +12,22 @@ const StyledDiv = styled.div`
 
 const Stars = ({ starRating }) => (
   <StyledDiv>
-    {starRating === 1 ?
-      '★☆☆☆☆' :
-      starRating === 2 ?
-        '★★☆☆☆' :
-        starRating === 3 ?
-          '★★★☆☆' :
-          starRating === 4 ?
-            '★★★★☆' :
-            starRating === 5 ?
-              '★★★★★' :
-              '☆☆☆☆☆'
-    }
+    {starRating === 1
+      ? '★☆☆☆☆'
+      : starRating === 2
+        ? '★★☆☆☆'
+        : starRating === 3
+          ? '★★★☆☆'
+          : starRating === 4
+            ? '★★★★☆'
+            : starRating === 5
+              ? '★★★★★'
+              : '☆☆☆☆☆'}
   </StyledDiv>
 );
 
 export default Stars;
+
+Stars.propTypes = {
+  starRating: PropTypes.number.isRequired,
+};
