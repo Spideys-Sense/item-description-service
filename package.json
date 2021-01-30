@@ -12,6 +12,7 @@
     "build": "webpack --config webpack.config.js --watch",
     "mocha-test": "mocha",
     "test": "jest",
+    "preseed": "node database/connection.js",
     "seed": "node database/seed.js"
   },
   "jest": {

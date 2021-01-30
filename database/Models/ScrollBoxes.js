@@ -3,20 +3,20 @@ const { db } = require('../index.js');
 
 const ScrollBoxes = db.define('ScrollBox', {
   photo: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
   },
   name: {
-    type: DataTypes.TEXT
+    type: DataTypes.TEXT,
   },
   price: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
   },
   starRating: {
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
   },
   onSale: {
-    type: DataTypes.TEXT
-  }
+    type: DataTypes.TEXT,
+  },
 });
 
 ScrollBoxes.sync();
