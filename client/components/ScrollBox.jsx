@@ -44,8 +44,6 @@ const StyledLeftButton = styled.button`
     color: ${(props) => (props.leftButtonIsClicked ? 'white' : '')};
     background-color: ${(props) => (props.leftButtonIsClicked ? '#0E70BE' : '')};
   }
-
-
 `;
 
 const StyledRightButton = styled.button`
