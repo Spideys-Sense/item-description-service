@@ -15,7 +15,7 @@ const StyledDivBox = styled.div`
   `;
 
 const StyledArrows = styled.div`
-  float: right;
+  margin-left: 850px;
   display: inline;
 `;
 
