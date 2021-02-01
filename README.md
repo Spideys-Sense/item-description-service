@@ -27,12 +27,14 @@
 
 ## Requirements
 
-!!!NOTICE!!! If initializing a fresh install of this module, you will need to create the database "iteminformation" from a mysql command line instance!
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+npm run build
+ - to build webpack
+npm start
+ - to start server
+npm run seed
+ - to seed database
 
 - Node 6.13.0
-- etc
 
 ## Development
 
