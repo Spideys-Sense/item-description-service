@@ -70,7 +70,7 @@ const Styledh1 = styled.h1`
   font-size: 20px;
   font-weight: 300;
   color: #333333;
-  margin-left: 250px;
+  margin-left: 375px;
 `;
 
 const ScrollBox = ({
