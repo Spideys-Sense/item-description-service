@@ -8,7 +8,6 @@ const StyledWrapper = styled.span`
 
 const StyledDivBox = styled.div`
   position: relative;
-  top: 650px;
   padding: 28px 10px;
   border-top: 2px solid rgb(224, 224, 224);
   background-color: rgb(242, 242, 242);
@@ -45,8 +44,6 @@ const StyledLeftButton = styled.button`
     color: ${(props) => (props.leftButtonIsClicked ? 'white' : '')};
     background-color: ${(props) => (props.leftButtonIsClicked ? '#0E70BE' : '')};
   }
-
-
 `;
 
 const StyledRightButton = styled.button`
@@ -73,6 +70,7 @@ const Styledh1 = styled.h1`
   font-size: 20px;
   font-weight: 300;
   color: #333333;
+  margin-left: 250px;
 `;
 
 const ScrollBox = ({

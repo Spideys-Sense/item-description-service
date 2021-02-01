@@ -2,7 +2,6 @@
 
 .descriptionTabClickedTrue {
   position: relative;
-  top: 650px;
   display: grid;
   grid-template-rows: 10% 85% 5%;
   grid-template-columns: 60% 40%;
@@ -33,7 +32,7 @@
 .descriptionTabClickedTrue .description {
   grid-row-start: 2;
   grid-column-start: 1;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .descriptionTabClickedTrue .DescriptionTab {
@@ -97,10 +96,11 @@
   max-width: 600px;
   margin-right: 25px;
   font-weight: 300;
+  line-height: 25px;
 }
 
 .descriptionTabClickedTrue .keyBenefitsTextBullets {
-  height: 370px;
+  height: 270px;
   margin-right: 25px;
   font-weight: 300;
 }
@@ -129,7 +129,7 @@
 }
 
 .descriptionTabClickedTrue .SideBarVideo .video-title {
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -154,14 +154,14 @@ ul.GATitle {
 .descriptionTabClickedTrue a {
   color: #0E70BE;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 300;
 }
 
 .descriptionTabClickedTrue .SideBarGraph li .title {
   float: left;
   width: 110px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 300;
   line-height: inherit;
   color: #9b9b9b;
@@ -169,7 +169,7 @@ ul.GATitle {
 }
 
 .descriptionTabClickedTrue .SideBar li .value {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 300;
   color: #555;
 }
@@ -183,7 +183,6 @@ ul.GATitle {
 
 .nutritionalInfoTabClickedTrue {
   position: relative;
-  top: 650px;
   display: grid;
   grid-template-rows: 17% 73%;
   grid-template-columns: 60% 40%;
@@ -239,7 +238,7 @@ ul.GATitle {
 .nutritionalInfoTabClickedTrue .NutritionalInfoText {
   grid-row-start: 2;
   grid-column-start: 1;
-  font-size: 13px;
+  font-size: 15px;
   vertical-align: middle;
   line-height: 20px;
   max-width: 600px;
@@ -259,6 +258,7 @@ ul.GATitle {
 .nutritionalInfoTabClickedTrue .IngredientsText .value {
   margin-right: 25px;
   font-weight: 300;
+  line-height: 25px;
 }
 
 .nutritionalInfoTabClickedTrue .CaloricContentText .title {
@@ -286,7 +286,7 @@ ul.GATitle {
 .nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv li .title {
   float: left;
   width: 110px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 300;
   line-height: inherit;
   color: #9b9b9b;
@@ -294,7 +294,7 @@ ul.GATitle {
 }
 
 .nutritionalInfoTabClickedTrue .GuaranteedAnalysisDiv li .value {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 300;
   color: #555;
 }
@@ -303,7 +303,6 @@ ul.GATitle {
 
 .feedingInstructionsClickedTrue {
   position: relative;
-  top: 650px;
   display: grid;
   grid-template-rows: 9% 91%;
   grid-template-columns: 60% 40%;
@@ -375,7 +374,7 @@ ul.GATitle {
 
 .feedingInstructionsClickedTrue .FeedingInstructionsText .value {
   padding-top: 25px;
-  font-size: 12px;
+  font-size: 13px;
   max-width: 600px;
   padding-right: 15px;
   font-weight: 300;
@@ -412,7 +411,7 @@ thead {
 }
 
 .feedingInstructionsClickedTrue .transitionInstructionsText .value {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 300;
   margin: 10px 0;
   max-width: 600px;
