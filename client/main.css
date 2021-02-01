@@ -2,7 +2,6 @@
 
 .descriptionTabClickedTrue {
   position: relative;
-  top: 650px;
   display: grid;
   grid-template-rows: 10% 85% 5%;
   grid-template-columns: 60% 40%;
@@ -183,7 +182,6 @@ ul.GATitle {
 
 .nutritionalInfoTabClickedTrue {
   position: relative;
-  top: 650px;
   display: grid;
   grid-template-rows: 17% 73%;
   grid-template-columns: 60% 40%;
@@ -303,7 +301,6 @@ ul.GATitle {
 
 .feedingInstructionsClickedTrue {
   position: relative;
-  top: 650px;
   display: grid;
   grid-template-rows: 9% 91%;
   grid-template-columns: 60% 40%;

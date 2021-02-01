@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 const db = new Sequelize('iteminformation', 'root', 'test', {
-  host: 'some-mysql1',
+  host: '13.59.145.68',
   dialect: 'mysql',
   logging: false,
 });
