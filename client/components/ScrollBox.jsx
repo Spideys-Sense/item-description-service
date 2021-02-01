@@ -26,10 +26,10 @@ const StyledLeftButton = styled.button`
   border-style: solid;
   background: transparent;
   transition: background-color ease-out 0.25s, color ease-out 0.25s;
-  /* border-color: ${(props) => (props.leftButtonIsClicked ? 'rgb(14, 112, 190);' : 'black')}
+  border-color: ${(props) => (props.leftButtonIsClicked ? 'rgb(14, 112, 190);' : 'black')}
   color: ${(props) => (props.leftButtonIsClicked ? '#0E70BE' : 'black')};
-  opacity: ${(props) => (props.leftButtonIsClicked ? '' : '0.5')}; */
-  ${(props) => (
+  opacity: ${(props) => (props.leftButtonIsClicked ? '' : '0.5')};
+  /* ${(props) => (
     (props.leftButtonIsClicked)
       ? `border-color: 'rgb(14, 112, 190)';
   color: '#0E70BE';
@@ -37,7 +37,7 @@ const StyledLeftButton = styled.button`
       : `border-color: 'black';
   color: 'black';
   opacity: '0.5';`
-  )}
+  )} */
   :hover {
     transition: background-color ease-in 0.25s, color ease-in 0.25s;
     cursor: ${(props) => (props.leftButtonIsClicked ? 'pointer' : '')};
